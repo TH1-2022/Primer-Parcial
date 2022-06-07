@@ -3,44 +3,44 @@
 
     class PersonaControlador {
         public static function Alta($nombre,$apellido,$telefono,$email){
-            $p = new PersonaModelo();
-            $p -> Nombre = $nombre;
-            $p -> Apellido = $apellido;
-            $p -> Telefono = $telefono;
-            $p -> Email = $email;
-            $p -> Guardar();
+            $persona = new PersonaModelo();
+            $persona -> Nombre = $nombre;
+            $persona -> Apellido = $apellido;
+            $persona -> Telefono = $telefono;
+            $persona -> Email = $email;
+            $persona -> Guardar();
 
         }
 
         public static function Eliminar($id){
-            $p = new PersonaModelo($id);
-            $p -> Eliminar();
+            $persona = new PersonaModelo($id);
+            $persona -> Eliminar();
         }
 
 
         public static function Modificar($id,$nombre,$apellido,$telefono,$email){
-            $p = new PersonaModelo($id);
-            $p -> Nombre = $nombre;
-            $p -> Apellido = $apellido;
-            $p -> Telefono = $telefono;
-            $p -> Email = $email;
-            $p -> Guardar();
+            $persona = new PersonaModelo($id);
+            $persona -> Nombre = $nombre;
+            $persona -> Apellido = $apellido;
+            $persona -> Telefono = $telefono;
+            $persona -> Email = $email;
+            $persona -> Guardar();
         }
 
         public static function Listar(){
-            $p = new PersonaModelo();
-            $personas = $p -> ObtenerTodos();
+            $persona = new PersonaModelo();
+            $personas = $persona -> ObtenerTodos();
 
             $resultado = array();
             foreach($personas as $elemento){
-                $a = array(
+                $array = array(
                     'id' => $elemento -> Id,
                     'nombre' => $elemento -> Nombre,
                     'apellido' => $elemento -> Apellido,
                     'telefono' => $elemento -> Telefono,
                     'email' => $elemento -> Email
                 );
-                array_push($resultado,$a);
+                array_push($resultado,$array);
             }
             return $resultado;
             

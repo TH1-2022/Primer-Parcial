@@ -1,5 +1,6 @@
 <?php
     require_once "config.php";
+    require_once "conexion.php";
 
     if($_SERVER['REQUEST_METHOD'] !== "POST"){
         header('Location: 404.php');
@@ -21,12 +22,5 @@
             VALUES ('$nombre','$descripcion',$stock)";
         else
             $sql = "INSERT INTO producto VALUES($id,'$nombre','$descripcion',$stock)";
-        llamarConexion($sql);
-    }
-
-    
-    function llamarConexion($sql){
-        $conexion = new Mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-        if ($conexion -> query($sql) === TRUE) header("Location: ./vistaProductos.php?agregado=true");
-        else header("Location: ./vistaProductos.php?agregado=false");
+        llamarConexion($sql, "Productos", ALTA);
     }

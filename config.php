@@ -3,3 +3,7 @@
     const NAME_DB = "Tienda";
     const USER_DB = "root";
     const PASS_DB = "";
+
+    const ALTA = "agregado";
+    const BAJA = "eliminado";
+    const MODIFICACION = "modificado";

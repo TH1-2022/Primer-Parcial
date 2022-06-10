@@ -1,5 +1,6 @@
 <?php
     require_once "config.php";
+    require_once "conexion.php";
 
     if($_SERVER['REQUEST_METHOD'] !== "POST"){
         header('Location: 404.php');
@@ -22,12 +23,5 @@
             VALUES ('$nombre','$apellido',$telefono,'$email')";
         else
             $sql = "INSERT INTO persona VALUES($id,'$nombre','$apellido',$telefono,'$email')";
-        llamarConexion($sql);
-    }
-
-    
-    function llamarConexion($sql){
-        $conexion = new Mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-        if ($conexion -> query($sql) === TRUE) header("Location: ./vistaPersonas.php?agregado=true");
-        else header("Location: ./vistaPersonas.php?agregado=false");
+        llamarConexion($sql, "Personas", ALTA);
     }

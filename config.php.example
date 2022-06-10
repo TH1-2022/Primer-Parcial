@@ -3,3 +3,7 @@
     const NAME_DB = "";
     const USER_DB = "";
     const PASS_DB = "";
+
+    const ALTA = "agregado";
+    const BAJA = "eliminado";
+    const MODIFICACION = "modificado";

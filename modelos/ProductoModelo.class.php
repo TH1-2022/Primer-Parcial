@@ -9,10 +9,10 @@ require "utils/autoload.php";
         public $Stock;
         public $Email;
 
-        public function __construct($id=""){
+        public function __construct($id = ""){
             parent::__construct();
             if($id != ""){
-                $this -> id = $id;
+                $this -> Id = $id;
                 $this -> Obtener();
             }
         }
@@ -23,7 +23,7 @@ require "utils/autoload.php";
         }
 
         private function insertar(){
-            $sql = "INSERT INTO prdocuto (nombre,descripcion,stock) VALUES (
+            $sql = "INSERT INTO producto (nombre,descripcion,stock) VALUES (
             '" . $this -> Nombre . "',
             '" . $this -> Descripcion . "',
             " . $this -> Stock . ")";
@@ -35,22 +35,22 @@ require "utils/autoload.php";
             nombre = '" . $this -> Nombre . "',
             descripcion = '" . $this -> Descripcion . "',
             stock = " . $this -> Stock . "
-            WHERE id = " . $this -> id;
+            WHERE id = " . $this -> Id;
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
         public function Obtener(){
-            $sql = "SELECT * FROM prodcuto WHERE id = " . $this ->id;
+            $sql = "SELECT * FROM producto WHERE id = " . $this -> Id;
             $fila = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC)[0];
 
-            $this -> id = $fila['id'];
-            $this -> nombre = $fila['nombre'];
-            $this -> descripcion = $fila['descripcion'];
-            $this -> stock = $fila['stock'];
+            $this -> Id = $fila['id'];
+            $this -> Nombre = $fila['nombre'];
+            $this -> Descripcion = $fila['descripcion'];
+            $this -> Stock = $fila['stock'];
         }
 
         public function Eliminar(){
-            $sql = "DELETE FROM producto WHERE id = " . $this ->Id;
+            $sql = "DELETE FROM producto WHERE id = " . $this -> Id;
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
@@ -60,12 +60,12 @@ require "utils/autoload.php";
 
             $resultado = array();
             foreach($filas as $fila){
-                $pr = new ProductoModelo();
-                $pr -> Id = $fila['id'];
-                $pr -> Nombre = $fila['nombre'];
-                $pr -> Descripcion = $fila['descripcion'];
-                $pr -> Stock = $fila['stock'];
-                array_push($resultado,$pr);
+                $producto = new ProductoModelo();
+                $producto -> Id = $fila['id'];
+                $producto -> Nombre = $fila['nombre'];
+                $producto -> Descripcion = $fila['descripcion'];
+                $producto -> Stock = $fila['stock'];
+                array_push($resultado,$producto);
             }
             return $resultado;
 

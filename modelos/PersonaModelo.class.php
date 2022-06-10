@@ -9,10 +9,10 @@ require "utils/autoload.php";
         public $Telefono;
         public $Email;
 
-        public function __construct($id=""){
+        public function __construct($id = ""){
             parent::__construct();
             if($id != ""){
-                $this -> id = $id;
+                $this -> Id = $id;
                 $this -> Obtener();
             }
         }
@@ -37,23 +37,23 @@ require "utils/autoload.php";
             apellido = '" . $this -> Apellido . "',
             telefono = " . $this -> Telefono . ",
             email = '" . $this -> Email . "'
-            WHERE id = " . $this -> id;
+            WHERE id = " . $this -> Id;
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
         public function Obtener(){
-            $sql = "SELECT * FROM persona WHERE id = " . $this ->id;
+            $sql = "SELECT * FROM persona WHERE id = " . $this -> Id;
             $fila = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC)[0];
 
-            $this -> id = $fila['id'];
-            $this -> nombre = $fila['nombre'];
-            $this -> apellido = $fila['apellido'];
-            $this -> telefono = $fila['telefono'];
-            $this -> email = $fila['email'];
+            $this -> Id = $fila['id'];
+            $this -> Nombre = $fila['nombre'];
+            $this -> Apellido = $fila['apellido'];
+            $this -> Telefono = $fila['telefono'];
+            $this -> Email = $fila['email'];
         }
 
         public function Eliminar(){
-            $sql = "DELETE FROM persona WHERE id = " . $this ->Id;
+            $sql = "DELETE FROM persona WHERE id = " . $this -> Id;
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
@@ -63,13 +63,13 @@ require "utils/autoload.php";
 
             $resultado = array();
             foreach($filas as $fila){
-                $p = new PersonaModelo();
-                $p -> Id = $fila['id'];
-                $p -> Nombre = $fila['nombre'];
-                $p -> Apellido = $fila['apellido'];
-                $p -> Telefono = $fila['telefono'];
-                $p -> Email = $fila['email'];
-                array_push($resultado,$p);
+                $persona = new PersonaModelo();
+                $persona -> Id = $fila['id'];
+                $persona -> Nombre = $fila['nombre'];
+                $persona -> Apellido = $fila['apellido'];
+                $persona -> Telefono = $fila['telefono'];
+                $persona -> Email = $fila['email'];
+                array_push($resultado,$persona);
             }
             return $resultado;
 

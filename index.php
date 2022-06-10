@@ -1,9 +1,10 @@
 <?php 
     require "utils/autoload.php";
 
-    //PersonaControlador::Alta('Juan','Perez',"1234","coso@coso.com");
+    //CompraControlador::Alta("3", "2");
     
     header("Content-Type:application/json");
-    echo json_encode(PersonaControlador::Listar());
+    echo json_encode(CompraControlador::Listar());
+
 
 

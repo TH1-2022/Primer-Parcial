@@ -1,16 +1,16 @@
 CREATE TABLE persona(
-    id int primary key auto_increment,
-    nombre varchar,
-    apellido varchar,
-    telefono int,
-    email varchar
+    id int primary key auto_increment, 
+    nombre varchar(20), 
+    apellido varchar(20), 
+    telefono int, 
+    email varchar(50)
 );
 
 
 CREATE TABLE producto(
     id int primary key auto_increment,
-    nombre varchar,
-    descripcion varchar,
+    nombre varchar(20),
+    descripcion varchar(200),
     stock int 
 );
 
@@ -21,5 +21,5 @@ CREATE TABLE compra(
     fecha_hora datetime,
     foreign key(id_persona) references persona(id),
     foreign key(id_producto) references producto(id),
-    primary key(id_persona,id_producto,fecha_hora);
-)
+    primary key(id_persona,id_producto,fecha_hora)
+);

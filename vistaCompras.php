@@ -26,29 +26,5 @@
         <button type="submit">Agregar</button>
     </form>
 
-    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "true" ) :?>
-        <div>La compra fue ingresada</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "false" ) :?>
-        <div>Ha ocurrido un problema</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET['eliminado']) && $_GET['eliminado'] === "true" ) :?>
-        <div>La compra fue eliminada</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET['eliminado']) && $_GET['eliminado'] === "false" ) :?>
-        <div>Ha ocurrido un problema</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET['modificado']) && $_GET['modificado'] === "true" ) :?>
-        <div>La compra fue modificada</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET['modificado']) && $_GET['modificado'] === "false" ) :?>
-        <div>Ha ocurrido un problema</div>
-    <?php endif;?>
-
 </body>
 </html>

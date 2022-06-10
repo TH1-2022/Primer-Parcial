@@ -19,6 +19,6 @@
 
     function llamarConexion($sql){
         $conexion = new Mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-        if ($conexion -> query($sql) === TRUE) header("Location: ./vistaPersonas.php?eliminado=true");
-        else header("Location: ./vistaPersonas.php?eliminado=false");
+        if ($conexion -> query($sql) === TRUE) header("Location: ./vistaCompras.php?eliminado=true");
+        else header("Location: ./vistaCompras.php?eliminado=false");
     }

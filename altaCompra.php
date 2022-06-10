@@ -24,6 +24,6 @@
     
     function llamarConexion($sql){
         $conexion = new Mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-        if ($conexion -> query($sql) === TRUE) header("Location: ./vistaPersonas.php?agregado=true");
-        else header("Location: ./vistaPersonas.php?agregado=false");
+        if ($conexion -> query($sql) === TRUE) header("Location: ./vistaListarProductosCompra.php?agregado=true");
+        else header("Location: ./vistaListarProductosCompra.php?agregado=false");
     }

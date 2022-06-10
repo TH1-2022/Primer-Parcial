@@ -12,7 +12,7 @@
     require_once "config.php";
 
     $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-    $sql = "SELECT * FROM persona WHERE id =" . $_GET['id'];
+    $sql = "SELECT * FROM  WHERE id =" . $_GET['id'];
     $resultado = $conexion -> query($sql)  -> fetch_all(MYSQLI_ASSOC)[0];
 
 ?>

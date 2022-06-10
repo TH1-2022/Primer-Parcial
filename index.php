@@ -9,6 +9,6 @@
 <body>
     <a href="./vistaPersonas.php">Menu Personas</a><br>
     <a href="./vistaProductos.php">Menu Productos</a><br>
-    <a href="./vistaCompras.php">Menu Compras</a>
+    <a href="./vistaListarProductosCompra.php">Menu Compras</a>
 </body>
 </html>

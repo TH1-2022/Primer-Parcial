@@ -12,36 +12,30 @@
         require_once "config.php";
 
         $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-        $sql = "SELECT * FROM persona";
+        $sql = "SELECT * FROM producto";
         $resultado = $conexion -> query($sql);
 
         foreach($resultado -> fetch_all(MYSQLI_ASSOC) as $fila) :
     ?>
-
-        <b>ID:</b> <?=$fila['id']?>  
+        <b>ID:</b>  <?=$fila['id']?> 
         <b>Nombre:</b>  <?=$fila['nombre']?> 
-        <b>Apellido:</b> <?=$fila['apellido']?> 
-        <b>Telefono:</b> <?=$fila['telefono']?> 
-        <b>Email:</b>  <?=$fila['email']?> 
+        <b>Descripcion:</b> <?=$fila['descripcion']?> 
+        <b>Stock:</b> <?=$fila['stock']?>
         
-        <a href="./eliminarPersona.php?id=<?=$fila['id']?>">Eliminar</a>
-        <a href="./vistaPersonasModificar.php?id=<?=$fila['id']?>">Modificar</a>
+        <a href="./altaCompra.php?id=<?=$fila['id']?>">Comprar</a>
 
         <br />
 
     <?php endforeach; ?>
 
-    <form action="./altaPersona.php" method="post"><br>
-        Id <input type="number" name="id"><br>
-        Nombre <input type="text" name="nombre"><br>
-        Apellido <input type="text" name="apellido"><br>
-        Telefono <input type="number" name="telefono"><br>
+    <form action="./altaCompra.php" method="post"><br>
         Email <input type="email" name="email"><br>
+        Fecha y Hora <input type="datetime" name="fecha_hora"><br>
         <button type="submit">Agregar</button>    
     </form>
 
     <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "true" ) :?>
-        <div>La persona fue ingresada</div>
+        <div>La compra fue ingresada</div>
     <?php endif;?>
 
     <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "false" ) :?>
@@ -49,7 +43,7 @@
     <?php endif;?>
 
     <?php if(isset($_GET['eliminado']) && $_GET['eliminado'] === "true" ) :?>
-        <div>La persona fue eliminada</div>
+        <div>La compra fue eliminada</div>
     <?php endif;?>
 
     <?php if(isset($_GET['eliminado']) && $_GET['eliminado'] === "false" ) :?>
@@ -57,7 +51,7 @@
     <?php endif;?>
 
     <?php if(isset($_GET['modificado']) && $_GET['modificado'] === "true" ) :?>
-        <div>La persona fue modificada</div>
+        <div>La compra fue modificada</div>
     <?php endif;?>
 
     <?php if(isset($_GET['modificado']) && $_GET['modificado'] === "false" ) :?>

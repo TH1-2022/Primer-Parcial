@@ -26,7 +26,6 @@
 
     
     function llamarConexion($sql){
-        echo $sql;
         $conexion = new Mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
         if ($conexion -> query($sql) === TRUE) header("Location: ./vistaProductos.php?agregado=true");
         else header("Location: ./vistaProductos.php?agregado=false");

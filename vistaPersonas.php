@@ -25,7 +25,7 @@
         <b>Email:</b>  <?=$fila['email']?> 
         
         <a href="./eliminarPersona.php?id=<?=$fila['id']?>">Eliminar</a>
-        <a href="./modificarPersona.php?id=<?=$fila['id']?>">Modificar</a>
+        <a href="./vistaPersonasModificar.php?id=<?=$fila['id']?>">Modificar</a>
 
         <br />
 

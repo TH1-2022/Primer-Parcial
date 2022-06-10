@@ -12,26 +12,18 @@
         require_once "config.php";
 
         $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-        $sql = "SELECT * FROM producto";
-        $resultado = $conexion -> query($sql);
-
-        foreach($resultado -> fetch_all(MYSQLI_ASSOC) as $fila) :
-    ?>
-        <b>ID:</b>  <?=$fila['id']?> 
-        <b>Nombre:</b>  <?=$fila['nombre']?> 
-        <b>Descripcion:</b> <?=$fila['descripcion']?> 
-        <b>Stock:</b> <?=$fila['stock']?>
+        $sql = "SELECT * FROM producto WHERE id =" . $_GET['id'];
+        $resultado = $conexion -> query($sql)  -> fetch_all(MYSQLI_ASSOC)[0];
         
-        <a href="./altaCompra.php?id=<?=$fila['id']?>">Comprar</a>
+    ?>
 
-        <br />
-
-    <?php endforeach; ?>
-
-    <form action="./altaCompra.php" method="post"><br>
+    <form action="./altaCompra.php" method="POST"><br>
+        ID <input type="number" name="id" value="<?= $resultado['id'] ?>" readonly> <br />
+        Nombre Producto <input type="text" name="nombre" value="<?= $resultado['nombre'] ?>" readonly> <br />
+        Descripcion Producto <input type="text" name="descripcion" value="<?= $resultado['descripcion'] ?>" readonly> <br />
         Email <input type="email" name="email"><br>
-        Fecha y Hora <input type="datetime" name="fecha_hora"><br>
-        <button type="submit">Agregar</button>    
+        Fecha y Hora <input type="datetime-local" name="fecha_hora"><br>
+        <button type="submit">Agregar</button>
     </form>
 
     <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "true" ) :?>

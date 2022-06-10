@@ -22,7 +22,7 @@
         <b>Descripcion:</b> <?=$fila['descripcion']?> 
         <b>Stock:</b> <?=$fila['stock']?>
         
-        <a href="./altaCompra.php?id=<?=$fila['id']?>">Comprar</a>
+        <a href="./vistaCompras.php?id=<?=$fila['id']?>">Comprar</a>
 
         <br />
     <?php endforeach; ?>

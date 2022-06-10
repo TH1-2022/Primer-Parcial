@@ -19,9 +19,9 @@
     function modificarPersona($id, $nombre, $apellido, $telefono, $email){
         if($id ==! "")
             $sql = "UPDATE persona SET
-                nombre = '$nombre'
-                apellido = '$apellido'
-                telefono = $telefono
+                nombre = '$nombre',
+                apellido = '$apellido',
+                telefono = $telefono,
                 email = '$email'
                 WHERE id = $id";
         llamarConexion($sql);
@@ -29,6 +29,7 @@
 
     
     function llamarConexion($sql){
+        echo $sql;
         $conexion = new Mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
         if ($conexion -> query($sql) === TRUE) header("Location: ./vistaPersonas.php?modificado=true");
         else header("Location: ./vistaPersonas.php?modificado=false");

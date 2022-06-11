@@ -11,18 +11,23 @@
 <?php 
     require_once "config.php";
 
-    $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-    $sql = "SELECT * FROM  WHERE id =" . $_GET['id'];
-    $resultado = $conexion -> query($sql)  -> fetch_all(MYSQLI_ASSOC)[0];
+    $id_persona = $_GET['persona'];
+    $id_producto = $_GET['producto'];
+    $fecha = $_GET['fecha'];
 
+    $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
+    $sql = "SELECT p.*, c.id_producto, pr.nombre AS nombre_producto, pr.descripcion, c.fecha_hora 
+    FROM persona p, producto pr, compra c 
+    WHERE p.id= c.id_persona AND pr.id = c.id_producto AND p.id = $id_persona AND pr.id = $id_producto AND fecha_hora = '$fecha';";
+    $resultado = $conexion -> query($sql)  -> fetch_all(MYSQLI_ASSOC)[0];
 ?>
 
 <form action="./modificarPersona.php" method="post">
-    ID: <input type="text" name="id" value="<?= $resultado['id'] ?>" readonly> <br />
-    Nombre: <input type="text" name="nombre" value="<?= $resultado['nombre'] ?>" > <br />
-    Apellido: <input type="text" name="apellido" value="<?= $resultado['apellido'] ?>" > <br />
-    Telefono: <input type="number" name="telefono" value="<?= $resultado['telefono'] ?>" > <br />
-    Email: <input type="email" name="email" value="<?= $resultado['email'] ?>" > <br />
+        ID del Producto<input type="number" name="id" value="<?= $resultado['id'] ?>" readonly> <br />
+        Nombre del Producto <input type="text" name="nombre" value="<?= $resultado['nombre'] ?>" readonly> <br />
+        Descripcion del Producto <input type="text" name="descripcion" value="<?= $resultado['descripcion'] ?>" readonly> <br />
+        Email de la persona <input type="email" name="email" value="<?= $resultado['email'] ?>" readonly><br>
+        Fecha y Hora de la compra <input type="datetime" name="fecha_hora" value="<?= $resultado['fecha_hora'] ?>"><br>
     <input type="submit" value="Modificar">
 </form>
 

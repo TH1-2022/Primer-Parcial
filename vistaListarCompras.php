@@ -54,7 +54,7 @@
         <b>Descripcion:</b> <?=$fila['descripcion']?>
         <b>Fecha y Hora:</b> <?=$fila['fecha_hora']?>
         <a href="./eliminarCompra.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>&fecha=<?=$fila['fecha_hora']?>">Eliminar</a>
-        <a href="./vistaComprasModificar.php?id=<?=$fila['id']/*Ver que modificar*/?>">Modificar</a>
+        <a href="./vistaComprasModificar.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>&fecha=<?=$fila['fecha_hora']?>">Modificar</a>
 
         <br />
         

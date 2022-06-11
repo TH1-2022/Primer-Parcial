@@ -27,13 +27,5 @@
         <br />
     <?php endforeach; ?>
 
-    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "true" ) :?>
-        <div>La compra fue ingresada</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "false" ) :?>
-        <div>Ha ocurrido un problema</div>
-    <?php endif;?>
-
 </body>
 </html>

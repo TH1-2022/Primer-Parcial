@@ -7,29 +7,14 @@
     <title>Lista de Compras</title>
 </head>
 <body>
-    <?php 
 
-        require_once "config.php";
+    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "true" ) :?>
+        <div>La compra fue ingresada</div>
+    <?php endif;?>
 
-        $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
-        /*$sql = "SELECT p.*, c.id_producto, pr.nombre AS nombre_producto, pr.descripcion, c.fecha_hora 
-            FROM persona p, producto pr, compra c 
-            WHERE p.id= c.id_persona AND pr.id = c.id_producto AND p.email = /*{GET DEL EMAIL}";*/
-            $sql = "SELECT p.*, c.id_producto, pr.nombre AS nombre_producto, pr.descripcion, c.fecha_hora 
-            FROM persona p, producto pr, compra c 
-            WHERE p.id= c.id_persona AND pr.id = c.id_producto";
-        $resultado = $conexion -> query($sql);
-
-        foreach($resultado -> fetch_all(MYSQLI_ASSOC) as $fila) :
-    ?>
-        <b>ID:</b>  <?=$fila['id']?> 
-        <b>Nombre:</b>  <?=$fila['nombre']?> 
-        <b>Descripcion:</b> <?=$fila['descripcion']?>
-        <a href="./vistaCompras.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>">Eliminar</a>
-        <a href="./vistaComprasModificar.php?id=<?=$fila['id']/*Ver que modificar*/?>">Modificar</a>
-
-        <br />
-    <?php endforeach; ?>
+    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "false" ) :?>
+        <div>Ha ocurrido un problema</div>
+    <?php endif;?>
 
     <?php if(isset($_GET['eliminado']) && $_GET['eliminado'] === "true" ) :?>
         <div>La compra fue eliminada</div>
@@ -46,6 +31,31 @@
     <?php if(isset($_GET['modificado']) && $_GET['modificado'] === "false" ) :?>
         <div>Ha ocurrido un problema</div>
     <?php endif;?>
-    
+
+
+    <?php 
+
+        require_once "config.php";
+
+        if (isset($_GET['id'])){
+            $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
+            $sql = "SELECT p.*, c.id_producto, pr.nombre AS nombre_producto, pr.descripcion, c.fecha_hora 
+            FROM persona p, producto pr, compra c 
+            WHERE p.id= c.id_persona AND pr.id = c.id_producto AND p.id =" . $_GET['id'];
+            $resultado = $conexion -> query($sql) -> fetch_all(MYSQLI_ASSOC);
+        }
+
+        foreach($resultado as $fila) :
+    ?>
+        <b>ID:</b>  <?=$fila['id']?> 
+        <b>Nombre:</b>  <?=$fila['nombre']?> 
+        <b>Descripcion:</b> <?=$fila['descripcion']?>
+        <b>Fecha y Hora:</b> <?=$fila['fecha_hora']?>
+        <a href="./vistaCompras.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>">Eliminar</a>
+        <a href="./vistaComprasModificar.php?id=<?=$fila['id']/*Ver que modificar*/?>">Modificar</a>
+
+        <br />
+    <?php endforeach; ?>
+
 </body>
 </html>

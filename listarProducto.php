@@ -13,5 +13,5 @@
     function listarProducto($id_producto){
         if($id_producto ==! "")
             $sql = "SELECT * FROM producto WHERE id = $id_producto;";
-            return ejcutarSentenciaDevuelveResultado($sql);
+            return ejcutarSentenciaDevuelveResultado($sql,1);
     }

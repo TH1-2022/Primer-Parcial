@@ -1,8 +1,6 @@
 <?php
     require_once "config.php";
     require_once "conexion.php";
-    require_once "listarPersona.php";
-    require_once "listarCompra.php";
     
     if($_SERVER['REQUEST_METHOD'] !== "POST"){
         header('Location: 404.php');
@@ -11,16 +9,21 @@
 
     
     $id = $_POST['id'];
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $telefono = $_POST['telefono'];
     $email = $_POST['email'];
-    $fecha = $_POST['fecha'];
     
-    modificarPersona($id, $email, $fecha);
+    modificarPersona($id, $nombre, $apellido, $telefono, $email);
 
     
-    function modificarPersona($id, $email, $fechaActualizada){
-        if($id ==! "" AND $email ==! "" AND $fecha ==! "")
-            $sql = "UPDATE compra SET
-                fecha_hora = '$fecha'
-                WHERE id_producto = $id AND id_persona = $id_persona AND fecha_hora = $fecha_Antigua";
-        llamarConexion($sql, "Productos", MODIFICACION);
+    function modificarPersona($id, $nombre, $apellido, $telefono, $email){
+        if($id ==! "")
+            $sql = "UPDATE persona SET
+                nombre = '$nombre',
+                apellido = '$apellido',
+                telefono = $telefono,
+                email = '$email'
+                WHERE id = $id";
+        llamarConexion($sql, "Personas", MODIFICACION);
     }

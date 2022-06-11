@@ -12,3 +12,8 @@
         if ($buscar == 1) return $resultado -> fetch_all(MYSQLI_ASSOC)[0];
         return $resultado;
     }
+
+    function irVista($resultado, $ruta, $metodo, $id){
+        if ($resultado) header("Location: ./vista" . $ruta . ".php?id=$id&" . $metodo . "=true");
+        else header("Location: ./vista" . $ruta . ".php?" . $metodo . "=false");
+    }

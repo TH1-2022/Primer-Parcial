@@ -37,6 +37,8 @@
 
         require_once "config.php";
 
+        $resultado = null;
+
         if (isset($_GET['id'])){
             $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
             $sql = "SELECT p.*, c.id_producto, pr.nombre AS nombre_producto, pr.descripcion, c.fecha_hora 
@@ -45,17 +47,18 @@
             $resultado = $conexion -> query($sql) -> fetch_all(MYSQLI_ASSOC);
         }
 
-        foreach($resultado as $fila) :
+        if($resultado) foreach($resultado as $fila) :
     ?>
         <b>ID:</b>  <?=$fila['id']?> 
         <b>Nombre:</b>  <?=$fila['nombre']?> 
         <b>Descripcion:</b> <?=$fila['descripcion']?>
         <b>Fecha y Hora:</b> <?=$fila['fecha_hora']?>
-        <a href="./vistaCompras.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>">Eliminar</a>
+        <a href="./eliminarCompra.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>&fecha=<?=$fila['fecha_hora']?>">Eliminar</a>
         <a href="./vistaComprasModificar.php?id=<?=$fila['id']/*Ver que modificar*/?>">Modificar</a>
 
         <br />
-    <?php endforeach; ?>
+        
+        <?php endforeach; ?>
 
 </body>
 </html>

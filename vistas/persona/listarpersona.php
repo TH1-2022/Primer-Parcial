@@ -9,6 +9,7 @@
 <body>
 
     <a href="altapersona.html">Ingresar persona</a></br></br>
+    <a href="../../index.html">Volver</a></br></br></br>
 
     <?php 
         require "../../utils/autoload.php";

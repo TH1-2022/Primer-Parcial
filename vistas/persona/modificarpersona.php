@@ -23,7 +23,9 @@
         Telefono <input type="number" name="telefono" value="<?= $telefono ?>"><br />
         Email <input type="email" name="email" value="<?= $email ?>"><br />
         <input type="submit" value="Modificar"></button>
-    </form>
+    </form></br>
+
+    <a href="listarpersona.php">Volver</a></br></br>
     
 </body>
 </html>

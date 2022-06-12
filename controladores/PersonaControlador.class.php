@@ -14,7 +14,9 @@
 
         public static function Eliminar($id){
             $persona = new PersonaModelo($id);
-            $persona -> Eliminar();
+            if($persona -> Eliminar() === false){
+                return false;
+            }
         }
 
         public static function Modificar($id,$nombre,$apellido,$telefono,$email){

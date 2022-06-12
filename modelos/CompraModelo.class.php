@@ -36,7 +36,6 @@ require "../../utils/autoload.php";
             $this -> IdPersona . ", " . 
             $this -> IdProducto . ", '" . 
             $this -> FechaYHora . "')";
-            echo $sql;
             $this -> conexionBaseDeDatos -> query($sql);
         }
 
@@ -54,7 +53,8 @@ require "../../utils/autoload.php";
             prod.nombre nombre_producto, prod.descripcion descripcion_producto, prod.stock stock_producto FROM 
             compra com, persona per, producto prod WHERE 
             com.id_persona = per.id AND 
-            com.id_producto = prod.id";
+            com.id_producto = prod.id 
+            ORDER BY com.fecha_hora DESC";
             $filas = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC);
 
             $resultado = array();

@@ -2,10 +2,11 @@
     require "../../utils/autoload.php";
 
     class CompraControlador {
-        public static function Alta($idPersona, $idProducto){
+        public static function Alta($idPersona, $idProducto, $fechaYHora){
             $compra = new CompraModelo();
             $compra -> IdPersona = $idPersona;
             $compra -> IdProducto = $idProducto;
+            $compra -> FechaYHora = $fechaYHora;
             $compra -> Guardar();
         }
 

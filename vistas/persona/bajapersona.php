@@ -13,6 +13,7 @@
         require "../../utils/autoload.php";
 
         $id = $_GET['id'];
+        
         if (PersonaControlador::Eliminar($id) === false){
             echo "No se puede eliminar a la persona</br></br>";
         }else{

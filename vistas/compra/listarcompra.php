@@ -9,6 +9,7 @@
 <body>
 
     <a href="altacompra.html">Ingresar compra</a></br></br>
+    <a href="../../index.html">Volver</a></br></br></br>
 
     <?php 
         require "../../utils/autoload.php";

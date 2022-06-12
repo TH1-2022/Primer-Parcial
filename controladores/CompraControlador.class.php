@@ -15,7 +15,9 @@
             $compra -> IdPersona = $idPersona;
             $compra -> IdProducto = $idProducto;
             $compra -> FechaYHora = $fechaYHora;
-            $compra -> Eliminar();
+            if($compra -> Eliminar() === false){
+                return false;
+            }
         }
 
         public static function Listar(){

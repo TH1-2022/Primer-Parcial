@@ -44,7 +44,7 @@ require "../../utils/autoload.php";
             id_persona = " . $this -> IdPersona . " AND 
             id_producto = " . $this -> IdProducto . " AND 
             fecha_hora = '" . $this -> FechaYHora . "'";
-            $this -> conexionBaseDeDatos -> query($sql);
+            return $this -> conexionBaseDeDatos -> query($sql);
         }
 
         public function ObtenerTodos(){

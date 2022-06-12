@@ -1,10 +1,5 @@
 <?php 
-    require "utils/autoload.php";
-
-    //CompraControlador::Alta("3", "2");
+    require "../utils/autoload.php";
     
     header("Content-Type:application/json");
     echo json_encode(CompraControlador::Listar());
-
-
-

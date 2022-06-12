@@ -1,5 +1,5 @@
 <?php 
-    require "utils/autoload.php";
+    require "../utils/autoload.php";
 
     class ProductoControlador {
         public static function Alta($nombre,$descripcion,$stock){

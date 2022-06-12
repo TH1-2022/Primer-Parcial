@@ -25,5 +25,5 @@
                 fecha_hora = '$fechaActualizada'
                 WHERE id_producto = $id AND id_persona = $id_persona AND fecha_hora = '$fechaAntigua';";
         }
-        llamarConexion($sql, "ListarCompras", MODIFICACION);
+        return llamarConexion($sql, "ListarCompras", MODIFICACION);
     }

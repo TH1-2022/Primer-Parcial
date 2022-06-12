@@ -36,15 +36,15 @@
     <?php 
 
         require_once "config.php";
+        require_once "conexion.php";
 
         $resultado = null;
 
         if (isset($_GET['id'])){
-            $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
             $sql = "SELECT p.*, c.id_producto, pr.nombre AS nombre_producto, pr.descripcion, c.fecha_hora 
             FROM persona p, producto pr, compra c 
             WHERE p.id= c.id_persona AND pr.id = c.id_producto AND p.id =" . $_GET['id'];
-            $resultado = $conexion -> query($sql) -> fetch_all(MYSQLI_ASSOC);
+            $resultado = ejcutarSentenciaDevuelveResultado($sql,1);
         }
 
         if($resultado) foreach($resultado as $fila) :

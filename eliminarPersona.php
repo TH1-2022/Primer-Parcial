@@ -14,5 +14,5 @@
     function eliminarPersona($id){
         if($id ==! "")
             $sql = "DELETE FROM persona WHERE id = $id";
-        llamarConexion($sql, "Personas", BAJA);
+        return llamarConexion($sql, "Personas", BAJA);
     }

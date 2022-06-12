@@ -10,16 +10,16 @@
 
 <?php 
     require_once "config.php";
+    require_once "conexion.php";
 
     $id_persona = $_GET['persona'];
     $id_producto = $_GET['producto'];
     $fecha = $_GET['fecha'];
 
-    $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
     $sql = "SELECT p.*, c.id_producto, pr.nombre AS nombre_producto, pr.descripcion, c.fecha_hora 
     FROM persona p, producto pr, compra c 
     WHERE p.id= c.id_persona AND pr.id = c.id_producto AND p.id = $id_persona AND pr.id = $id_producto AND fecha_hora = '$fecha';";
-    $resultado = $conexion -> query($sql)  -> fetch_all(MYSQLI_ASSOC)[0];
+    $resultado = ejcutarSentenciaDevuelveResultado($sql,1)[0];
 ?>
 
 <form action="./modificarCompra.php" method="post">

@@ -23,5 +23,5 @@
                 descripcion = '$descripcion',
                 stock = $stock
                 WHERE id = $id";
-        llamarConexion($sql, "Productos", MODIFICACION);
+        return llamarConexion($sql, "Productos", MODIFICACION);
     }

@@ -23,5 +23,5 @@
             VALUES ('$nombre','$apellido',$telefono,'$email')";
         else
             $sql = "INSERT INTO persona VALUES($id,'$nombre','$apellido',$telefono,'$email')";
-        llamarConexion($sql, "Personas", ALTA);
+        return llamarConexion($sql, "Personas", ALTA);
     }

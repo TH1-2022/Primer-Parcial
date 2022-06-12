@@ -14,5 +14,5 @@
     function eliminarProducto($id){
         if($id ==! "")
             $sql = "DELETE FROM producto WHERE id = $id";
-        llamarConexion($sql, "Productos", BAJA);
+        return llamarConexion($sql, "Productos", BAJA);
     }

@@ -10,12 +10,12 @@
     <?php 
 
         require_once "config.php";
+        require_once "conexion.php";
 
-        $conexion = new mysqli(IP_DB,USER_DB,PASS_DB,NAME_DB);
         $sql = "SELECT * FROM producto";
-        $resultado = $conexion -> query($sql);
+        $resultado = ejcutarSentenciaDevuelveResultado($sql,1);
 
-        foreach($resultado -> fetch_all(MYSQLI_ASSOC) as $fila) :
+        foreach($resultado as $fila) :
     ?>
 
         <b>ID:</b> <?=$fila['id']?>  

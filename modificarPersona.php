@@ -25,5 +25,5 @@
                 telefono = $telefono,
                 email = '$email'
                 WHERE id = $id";
-        llamarConexion($sql, "Personas", MODIFICACION);
+        return llamarConexion($sql, "Personas", MODIFICACION);
     }

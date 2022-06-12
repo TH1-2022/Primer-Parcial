@@ -12,5 +12,5 @@
     function listarPersona($email){
         if($email ==! "")
             $sql = "SELECT * FROM persona WHERE email = '$email';";
-            return ejcutarSentenciaDevuelveResultado($sql,1);
+            return ejcutarSentenciaDevuelveResultado($sql,1)[0];
     }

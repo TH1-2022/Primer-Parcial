@@ -21,7 +21,9 @@
         Descripcion <input type="text" name="descripcion" value="<?= $descripcion ?>"><br />
         Stock <input type="number" name="stock" value="<?= $stock ?>"><br />
         <input type="submit" value="Modificar"></button>
-    </form>
+    </form></br>
+
+    <a href="listarproducto.php">Volver</a></br></br>
     
 </body>
 </html>

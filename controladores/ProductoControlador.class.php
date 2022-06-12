@@ -13,7 +13,9 @@
 
         public static function Eliminar($id){
             $producto = new ProductoModelo($id);
-            $producto -> Eliminar();
+            if($producto -> Eliminar() === false){
+                return false;
+            }
         }
 
 

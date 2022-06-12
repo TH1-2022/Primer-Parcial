@@ -51,7 +51,7 @@ require "../../utils/autoload.php";
 
         public function Eliminar(){
             $sql = "DELETE FROM producto WHERE id = " . $this -> Id;
-            $this -> conexionBaseDeDatos -> query($sql);
+            return $this -> conexionBaseDeDatos -> query($sql);
         }
 
         public function ObtenerTodos(){

@@ -17,7 +17,6 @@
             $persona -> Eliminar();
         }
 
-
         public static function Modificar($id,$nombre,$apellido,$telefono,$email){
             $persona = new PersonaModelo($id);
             $persona -> Nombre = $nombre;

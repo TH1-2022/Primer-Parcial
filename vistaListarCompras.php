@@ -28,6 +28,7 @@
         <b>Nombre:</b>  <?=$fila['nombre']?> 
         <b>Descripcion:</b> <?=$fila['descripcion']?>
         <b>Fecha y Hora:</b> <?=$fila['fecha_hora']?>
+        <a href="./vistaCompras.php?id=<?=$fila['id_producto']?>">Volver a Comprar</a>
         <a href="./eliminarCompra.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>&fecha=<?=$fila['fecha_hora']?>">Eliminar</a>
         <a href="./vistaComprasModificar.php?producto=<?=$fila['id_producto']?>&persona=<?=$fila['id']?>&fecha=<?=$fila['fecha_hora']?>">Modificar</a>
 

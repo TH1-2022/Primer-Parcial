@@ -22,7 +22,7 @@
         Nombre del Producto <input type="text" name="nombre" value="<?= $resultado['nombre'] ?>" readonly> <br />
         Descripcion del Producto <input type="text" name="descripcion" value="<?= $resultado['descripcion'] ?>" readonly> <br />
         Email de la persona <input type="email" name="email"><br>
-        Fecha y Hora de la compra <input type="datetime-local" name="fecha_hora"><br>
+        Fecha y Hora de la compra <input type="datetime-local" name="fecha_hora" value="<?php echo date("Y-m-d\TH:i:s")?>"><br>
         <button type="submit">Agregar</button>
     </form>
 

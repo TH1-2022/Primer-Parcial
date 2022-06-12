@@ -43,8 +43,8 @@
             echo "Telefono: " . $telefono_persona .  "</br>";
             echo "Email: " . $email_persona .  "</br></br>";
             echo "Producto: " . $nombre_producto .  "</br>";
-            echo "Descripción : " . $descripcion_producto .  "</br>";
-            echo "Stock actual : " . $stock_producto .  "</br></br></br></br>";
+            echo "Descripción: " . $descripcion_producto .  "</br>";
+            echo "Stock actual: " . $stock_producto .  "</br></br></br></br>";
 
         }
     ?>

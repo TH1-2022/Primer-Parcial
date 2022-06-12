@@ -40,27 +40,27 @@
         <button type="submit">Agregar</button>    
     </form>
 
-    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "true" ) :?>
+    <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "true" ) :?>
         <div>La persona fue ingresada</div>
     <?php endif;?>
 
-    <?php if(isset($_GET['agregado']) && $_GET['agregado'] === "false" ) :?>
+    <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "false" ) :?>
         <div>Ha ocurrido un problema</div>
     <?php endif;?>
 
-    <?php if(isset($_GET['eliminado']) && $_GET['eliminado'] === "true" ) :?>
+    <?php if(isset($_GET[BAJA]) && $_GET[BAJA] === "true" ) :?>
         <div>La persona fue eliminada</div>
     <?php endif;?>
 
-    <?php if(isset($_GET['eliminado']) && $_GET['eliminado'] === "false" ) :?>
+    <?php if(isset($_GET[BAJA]) && $_GET[BAJA] === "false" ) :?>
         <div>Ha ocurrido un problema</div>
     <?php endif;?>
 
-    <?php if(isset($_GET['modificado']) && $_GET['modificado'] === "true" ) :?>
+    <?php if(isset($_GET[MODIFICACION]) && $_GET[MODIFICACION] === "true" ) :?>
         <div>La persona fue modificada</div>
     <?php endif;?>
 
-    <?php if(isset($_GET['modificado']) && $_GET['modificado'] === "false" ) :?>
+    <?php if(isset($_GET[MODIFICACION]) && $_GET[MODIFICACION] === "false" ) :?>
         <div>Ha ocurrido un problema</div>
     <?php endif;?>
 

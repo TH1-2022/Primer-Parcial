@@ -17,11 +17,13 @@
 
     
     function modificarProducto($id, $nombre, $descripcion, $stock){
-        if($id ==! "")
+        if($id ==! ""){
             $sql = "UPDATE producto SET
                 nombre = '$nombre',
                 descripcion = '$descripcion',
                 stock = $stock
                 WHERE id = $id";
-        return llamarConexion($sql, "Productos", MODIFICACION);
+            $resultadoModificar = ejcutarSentenciaDevuelveResultado($sql,"0");
+        }
+        return irVista($resultadoModificar, "Productos", MODIFICACION, $id);
     }

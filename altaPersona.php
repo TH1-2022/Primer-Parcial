@@ -21,7 +21,8 @@
         if($id === "")
             $sql = "INSERT INTO persona (nombre,apellido,telefono,email)
             VALUES ('$nombre','$apellido',$telefono,'$email')";
-        else
-            $sql = "INSERT INTO persona VALUES($id,'$nombre','$apellido',$telefono,'$email')";
-        return llamarConexion($sql, "Personas", ALTA);
+        else $sql = "INSERT INTO persona VALUES($id,'$nombre','$apellido',$telefono,'$email')";
+        $resultadoInsertar = ejcutarSentenciaDevuelveResultado($sql,"0");
+        
+        return irVista($resultadoInsertar, "Personas", ALTA, $id);
     }

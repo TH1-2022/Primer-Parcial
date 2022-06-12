@@ -12,7 +12,9 @@
     eliminarPersona($id);
 
     function eliminarPersona($id){
-        if($id ==! "")
+        if($id ==! ""){
             $sql = "DELETE FROM persona WHERE id = $id";
-        return llamarConexion($sql, "Personas", BAJA);
+            $resultadoEliminar = ejcutarSentenciaDevuelveResultado($sql,"0");
+        }
+        return irVista($resultadoEliminar, "Personas", BAJA, $id);
     }

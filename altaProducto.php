@@ -22,5 +22,7 @@
             VALUES ('$nombre','$descripcion',$stock)";
         else
             $sql = "INSERT INTO producto VALUES($id,'$nombre','$descripcion',$stock)";
-        return llamarConexion($sql, "Productos", ALTA);
+        $resultadoInsertar = ejcutarSentenciaDevuelveResultado($sql,"0");
+        
+        return irVista($resultadoInsertar, "Productos", ALTA, $id);
     }

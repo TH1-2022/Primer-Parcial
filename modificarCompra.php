@@ -24,6 +24,7 @@
             $sql = "UPDATE compra SET
                 fecha_hora = '$fechaActualizada'
                 WHERE id_producto = $id AND id_persona = $id_persona AND fecha_hora = '$fechaAntigua';";
+            $resultadoModificar = ejcutarSentenciaDevuelveResultado($sql,"0");
         }
-        return llamarConexion($sql, "ListarCompras", MODIFICACION);
+        return irVista($resultadoModificar, "ListarCompras", MODIFICACION, $id_persona);
     }

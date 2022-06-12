@@ -12,7 +12,10 @@
     eliminarProducto($id);
 
     function eliminarProducto($id){
-        if($id ==! "")
+        if($id ==! ""){
             $sql = "DELETE FROM producto WHERE id = $id";
-        return llamarConexion($sql, "Productos", BAJA);
+            $resultadoEliminar = ejcutarSentenciaDevuelveResultado($sql,"0");
+        }
+        return irVista($resultadoEliminar, "Productos", BAJA, $id);
     }
+    

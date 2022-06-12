@@ -18,12 +18,14 @@
 
     
     function modificarPersona($id, $nombre, $apellido, $telefono, $email){
-        if($id ==! "")
+        if($id ==! ""){
             $sql = "UPDATE persona SET
                 nombre = '$nombre',
                 apellido = '$apellido',
                 telefono = $telefono,
                 email = '$email'
                 WHERE id = $id";
-        return llamarConexion($sql, "Personas", MODIFICACION);
+            $resultadoModificar = ejcutarSentenciaDevuelveResultado($sql,"0");
+        }
+        return irVista($resultadoModificar, "Personas", MODIFICACION, $id);
     }

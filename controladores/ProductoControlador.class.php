@@ -12,7 +12,7 @@
         }
 
         public static function Eliminar($id){
-            $producto = new Producto($id);
+            $producto = new ProductoModelo($id);
             $producto -> Eliminar();
         }
 

@@ -7,32 +7,7 @@
     <title>Lista de Compras</title>
 </head>
 <body>
-
-    <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "true" ) :?>
-        <div>La compra fue ingresada</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "false" ) :?>
-        <div>Ha ocurrido un problema</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET[BAJA]) && $_GET[BAJA] === "true" ) :?>
-        <div>La compra fue eliminada</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET[BAJA]) && $_GET[BAJA] === "false" ) :?>
-        <div>Ha ocurrido un problema</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET[MODIFICACION]) && $_GET[MODIFICACION] === "true" ) :?>
-        <div>La compra fue modificada</div>
-    <?php endif;?>
-
-    <?php if(isset($_GET[MODIFICACION]) && $_GET[MODIFICACION] === "false" ) :?>
-        <div>Ha ocurrido un problema</div>
-    <?php endif;?>
-
-
+    
     <?php 
 
         require_once "config.php";
@@ -59,6 +34,31 @@
         <br />
         
         <?php endforeach; ?>
+
+        
+    <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "true" ) :?>
+        <div>La compra fue ingresada</div>
+    <?php endif;?>
+
+    <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "false" ) :?>
+        <div>Ha ocurrido un problema</div>
+    <?php endif;?>
+
+    <?php if(isset($_GET[BAJA]) && $_GET[BAJA] === "true" ) :?>
+        <div>La compra fue eliminada</div>
+    <?php endif;?>
+
+    <?php if(isset($_GET[BAJA]) && $_GET[BAJA] === "false" ) :?>
+        <div>Ha ocurrido un problema</div>
+    <?php endif;?>
+
+    <?php if(isset($_GET[MODIFICACION]) && $_GET[MODIFICACION] === "true" ) :?>
+        <div>La compra fue modificada</div>
+    <?php endif;?>
+
+    <?php if(isset($_GET[MODIFICACION]) && $_GET[MODIFICACION] === "false" ) :?>
+        <div>Ha ocurrido un problema</div>
+    <?php endif;?>
 
 </body>
 </html>

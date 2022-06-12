@@ -19,8 +19,7 @@
     
     function modificarCompra($id, $email, $fechaActualizada, $fechaAntigua){
         if($id ==! "" AND $email ==! "" AND $fechaActualizada ==! "" AND $fechaAntigua ==! ""){
-            $persona = listarPersona($email);
-            $id_persona = $persona['id'];
+            $id_persona = obtenerId($email);
             $sql = "UPDATE compra SET
                 fecha_hora = '$fechaActualizada'
                 WHERE id_producto = $id AND id_persona = $id_persona AND fecha_hora = '$fechaAntigua';";

@@ -2,6 +2,7 @@
     require_once "config.php";
     require_once "conexion.php";
     require_once "listarProducto.php";
+    require_once "modificarStock.php";
 
     if($_SERVER['REQUEST_METHOD'] !== "GET"){
         header('Location: 404.php');
@@ -16,13 +17,27 @@
 
     function eliminarCompra($id_persona, $id_producto, $fecha){
         if($id_persona ==! "" AND $id_producto ==! ""){
-            $producto = listarProducto($id_producto);
-            $cambiarStock = $producto['stock'] + 1;
-            $sql = "DELETE FROM compra WHERE id_persona = $id_persona AND id_producto = $id_producto AND fecha_hora = '$fecha';";
-            $resultadoEliminar = ejcutarSentenciaDevuelveResultado($sql,"0");
-            $sql = "UPDATE producto SET stock = $cambiarStock WHERE id = $id_producto;";
-            $resultadoModificar = ejcutarSentenciaDevuelveResultado($sql,"0");
-            if($resultadoEliminar && $resultadoModificar) return irVista(TRUE, "ListarCompras", BAJA, $id_persona);
+            $stock = modificarStock($id_producto, BAJA);
+            $resultadoEliminar = ejecutarEliminacion($id_persona, $id_producto, $fecha, $stock);
+            $resultadoModificar = ejecutarModificacion($id_producto, $stock);
         }
-        return irVista(FALSE, "ListarCompras", BAJA, null);
+        decidirVista($resultadoEliminar, $resultadoModificar, $id_persona);
+    }
+
+
+    function ejecutarEliminacion($id_persona, $id_producto, $fecha_hora, $stock){
+        $sql = "DELETE FROM compra WHERE id_persona = $id_persona AND id_producto = $id_producto AND fecha_hora = '$fecha_hora';";
+        return $resultadoEliminar = ejcutarSentenciaDevuelveResultado($sql,"0");
+    }
+
+
+    function ejecutarModificacion($id_producto, $stock){
+        $sql = "UPDATE producto SET stock = $stock WHERE id = $id_producto;";
+        return ejcutarSentenciaDevuelveResultado($sql,"0");
+    }
+
+    
+    function decidirVista($resultadoEliminar, $resultadoModificar, $id_persona){
+        if($resultadoEliminar && $resultadoModificar) return irVista(TRUE, "ListarCompras", BAJA, $id_persona);
+        return irVista(FALSE, "ListarCompras", BAJA, $id_persona);
     }

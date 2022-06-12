@@ -3,6 +3,7 @@
     require_once "conexion.php";
     require_once "listarProducto.php";
     require_once "listarPersona.php";
+    require_once "modificarStock.php";
 
     if($_SERVER['REQUEST_METHOD'] !== "POST"){
         header('Location: 404.php');
@@ -18,15 +19,34 @@
 
     function altaCompra($email, $id_producto, $fecha_hora){
         if($email ==! "" AND $id_producto ==! ""){
-            $producto = listarProducto($id_producto);
-            $persona = listarPersona($email);
-            $id_persona = $persona['id'];
-            $agregarCompra = $producto['stock'] - 1;
-            $sql = "UPDATE producto SET stock = $agregarCompra WHERE id = $id_producto;";
-            $resultadoModificar = ejcutarSentenciaDevuelveResultado($sql,"0");
+            $id_persona = obtenerId($email);
+            $stock = modificarStock($id_producto, ALTA);
+            $resultadoModificar = ejecutarModificacion($id_producto, $stock);
+            $resultadoInsertar = ejecutarInsertar($id_persona, $id_producto, $fecha_hora, $stock);
+        }
+        decidirVista($resultadoInsertar, $resultadoModificar, $id_persona);
+    }
+
+    function validarStock($stock){
+        if ($stock >= 0) return TRUE;
+        return FALSE;
+    }
+
+    function ejecutarModificacion($id_producto, $stock){
+        if (validarStock($stock)){
+            $sql = "UPDATE producto SET stock = $stock WHERE id = $id_producto;";
+            return ejcutarSentenciaDevuelveResultado($sql,"0");
+        }
+    }
+
+    function ejecutarInsertar($id_persona, $id_producto, $fecha_hora, $stock){
+        if (validarStock($stock)){
             $sql = "INSERT INTO compra VALUES ($id_persona, $id_producto, '$fecha_hora');";
-            $resultadoInsertar = ejcutarSentenciaDevuelveResultado($sql,"0");
-            if($resultadoInsertar && $resultadoModificar) return irVista(TRUE, "ListarCompras", ALTA, $id_persona);
-        }            
-        return irVista(FALSE, "ListarCompras", ALTA, null);
+            return ejcutarSentenciaDevuelveResultado($sql,"0");
+        }
+    }
+
+    function decidirVista($resultadoInsertar, $resultadoModificar, $id_persona){
+        if($resultadoInsertar && $resultadoModificar) return irVista(TRUE, "ListarCompras", ALTA, $id_persona);
+        return irVista(FALSE, "ListarCompras", ALTA, $id_persona);
     }

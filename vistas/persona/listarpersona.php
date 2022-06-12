@@ -11,7 +11,7 @@
     <a href="altapersona.html">Ingresar persona</a></br></br>
 
     <?php 
-        require "../utils/autoload.php";
+        require "../../utils/autoload.php";
         
         $personas = PersonaControlador::Listar();
 

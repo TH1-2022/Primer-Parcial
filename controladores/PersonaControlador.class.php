@@ -1,5 +1,5 @@
 <?php 
-    require "../utils/autoload.php";
+    require "../../utils/autoload.php";
 
     class PersonaControlador {
         public static function Alta($nombre,$apellido,$telefono,$email){

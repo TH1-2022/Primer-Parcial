@@ -11,10 +11,13 @@
     
     <?php
 
-        require "../utils/autoload.php";
+    require "../../utils/autoload.php";
 
-        $id = $_GET['id'];
-        ProductoControlador::Eliminar($id);
+    $nombre = $_POST['nombre'];
+    $descripcion = $_POST['descripcion'];
+    $stock = $_POST['stock'];
+
+    ProductoControlador::Alta($nombre, $descripcion, $stock);
 
     ?>
 

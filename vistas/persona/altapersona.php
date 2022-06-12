@@ -11,7 +11,7 @@
     
     <?php
 
-    require "../utils/autoload.php";
+    require "../../utils/autoload.php";
 
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];

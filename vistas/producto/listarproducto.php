@@ -11,7 +11,7 @@
     <a href="altaproducto.html">Ingresar producto</a></br></br>
 
     <?php 
-        require "../utils/autoload.php";
+        require "../../utils/autoload.php";
         
         $productos = ProductoControlador::Listar();
 

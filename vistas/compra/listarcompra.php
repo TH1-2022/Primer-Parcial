@@ -11,7 +11,7 @@
     <a href="altacompra.html">Ingresar compra</a></br></br>
 
     <?php 
-        require "../utils/autoload.php";
+        require "../../utils/autoload.php";
         
         $compras = CompraControlador::Listar();
 

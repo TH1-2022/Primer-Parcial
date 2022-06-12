@@ -11,7 +11,7 @@
     
     <?php
 
-    require "../utils/autoload.php";
+    require "../../utils/autoload.php";
 
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];

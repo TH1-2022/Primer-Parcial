@@ -7,19 +7,21 @@
 
         public static function Alta($idPersona, $idProducto, $fechaYHora)
         {
-            if(ProductoControlador::VerificarStock($idProducto))
+            if (ProductoControlador::VerificarStock($idProducto))
             {
                 $compra = new CompraModelo();
                 $compra -> IdPersona = $idPersona;
                 $compra -> IdProducto = $idProducto;
                 $compra -> FechaYHora = $fechaYHora;
 
-                if ($compra -> Guardar() === false)
+                if (false === $compra -> Guardar())
                 {
                     return false;
                 }
                 ProductoControlador::RestarStock($idProducto);
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }
@@ -32,7 +34,7 @@
             $compra -> IdProducto = $idProducto;
             $compra -> FechaYHora = $fechaYHora;
 
-            if($compra -> Eliminar() === false)
+            if (false === $compra -> Eliminar())
             {
                 return false;
             }
@@ -42,10 +44,12 @@
         public static function Modificar($idPersona, $idProducto, $fechaYHora, 
         $nuevaidPersona, $nuevaidProducto, $nuevafechaYHora)
         {
-            if(self::AltaSinRestarStock($nuevaidPersona, $nuevaidProducto, $nuevafechaYHora))
+            if (self::AltaSinRestarStock($nuevaidPersona, $nuevaidProducto, $nuevafechaYHora))
             {
                 self::Eliminar($idPersona, $idProducto, $fechaYHora);
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }
@@ -58,10 +62,12 @@
             $compra -> IdProducto = $idProducto;
             $compra -> FechaYHora = $fechaYHora;
             
-            if ($compra -> Guardar() === false)
+            if (false === $compra -> Guardar())
             {
                 return false;
-            } else {
+            }
+            else
+            {
                 return true;
             }
         }
@@ -73,7 +79,7 @@
             $compras = $compra -> ObtenerTodos();
             $resultado = array();
             
-            foreach($compras as $elemento)
+            foreach ($compras as $elemento)
             {
                 $array = array
                 (

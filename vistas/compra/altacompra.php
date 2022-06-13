@@ -16,10 +16,12 @@
         $id_producto = $_POST['id_producto'];
         $fecha_hora = $_POST['fecha_hora'];
 
-        if (CompraControlador::Alta($id_persona, $id_producto, $fecha_hora) === false)
+        if (false === CompraControlador::Alta($id_persona, $id_producto, $fecha_hora))
         {
             echo "No se puede ingresar a la compra</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Compra ingresada</br></br>";
         }
 

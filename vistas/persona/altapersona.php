@@ -17,10 +17,12 @@
         $telefono = $_POST['telefono'];
         $email = $_POST['email'];
 
-        if(PersonaControlador::Alta($nombre, $apellido, $telefono, $email) === false)
+        if (false === PersonaControlador::Alta($nombre, $apellido, $telefono, $email))
         {
             echo "No se puede ingresar a la persona</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Persona ingresada</br></br>";
         }
 

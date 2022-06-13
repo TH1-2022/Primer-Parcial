@@ -13,7 +13,7 @@
             $persona -> Telefono = $telefono;
             $persona -> Email = $email;
 
-            if($persona -> Guardar() === false)
+            if (false === $persona -> Guardar())
             {
                 return false;
             }
@@ -24,7 +24,7 @@
         {
             $persona = new PersonaModelo($id);
 
-            if($persona -> Eliminar() === false)
+            if (false === $persona -> Eliminar())
             {
                 return false;
             }
@@ -39,7 +39,7 @@
             $persona -> Telefono = $telefono;
             $persona -> Email = $email;
 
-            if($persona -> Guardar() === false)
+            if (false === $persona -> Guardar())
             {
                 return false;
             }
@@ -52,7 +52,7 @@
             $personas = $persona -> ObtenerTodos();
             $resultado = array();
             
-            foreach($personas as $elemento)
+            foreach ($personas as $elemento)
             {
                 $array = array
                 (

@@ -18,10 +18,12 @@
         $telefono = $_POST['telefono'];
         $email = $_POST['email'];
 
-        if(PersonaControlador::Modificar($id, $nombre, $apellido, $telefono, $email) === false)
+        if (false === PersonaControlador::Modificar($id, $nombre, $apellido, $telefono, $email))
         {
             echo "No se puede modificar a la persona</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Persona modificada</br></br>";
         }
 

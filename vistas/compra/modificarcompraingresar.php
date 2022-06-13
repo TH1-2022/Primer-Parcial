@@ -19,11 +19,13 @@
         $nueva_id_producto = $_POST['nueva_id_producto'];
         $nueva_fecha_hora = $_POST['nueva_fecha_hora'];
 
-        if(CompraControlador::Modificar($id_persona, $id_producto, $fecha_hora, 
-        $nueva_id_persona, $nueva_id_producto, $nueva_fecha_hora) === false)
+        if (false === CompraControlador::Modificar($id_persona, $id_producto, $fecha_hora, 
+            $nueva_id_persona, $nueva_id_producto, $nueva_fecha_hora))
         {
             echo "No se puede modificar a la compra</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Compra modificada</br></br>";
         }
 

@@ -14,10 +14,12 @@
 
         $id = $_GET['id'];
         
-        if (PersonaControlador::Eliminar($id) === false)
+        if (false === PersonaControlador::Eliminar($id))
         {
             echo "No se puede eliminar a la persona</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Persona eliminada</br></br>";
         }
 

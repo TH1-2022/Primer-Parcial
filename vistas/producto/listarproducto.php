@@ -17,7 +17,7 @@
         
         $productos = ProductoControlador::Listar();
 
-        foreach($productos as $producto)
+        foreach ($productos as $producto)
         {
             $id = $producto['id'];
             $nombre = $producto['nombre'];

@@ -17,10 +17,12 @@
         $descripcion = $_POST['descripcion'];
         $stock = $_POST['stock'];
 
-        if(ProductoControlador::Modificar($id, $nombre, $descripcion, $stock) === false)
+        if (false === ProductoControlador::Modificar($id, $nombre, $descripcion, $stock))
         {
             echo "No se puede modificar el producto</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Producto modificado</br></br>";
         }
 

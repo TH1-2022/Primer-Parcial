@@ -16,10 +16,12 @@
         $descripcion = $_POST['descripcion'];
         $stock = $_POST['stock'];
 
-        if(ProductoControlador::Alta($nombre, $descripcion, $stock) === false)
+        if (false === ProductoControlador::Alta($nombre, $descripcion, $stock))
         {
             echo "No se puede ingresar el producto</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Producto ingresado</br></br>";
         }
 

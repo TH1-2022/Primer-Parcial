@@ -12,7 +12,7 @@
             $producto -> Descripcion = $descripcion;
             $producto -> Stock = $stock;
 
-            if($producto -> Guardar() === false)
+            if (false === $producto -> Guardar())
             {
                 return false;
             }
@@ -23,7 +23,7 @@
         {
             $producto = new ProductoModelo($id);
 
-            if($producto -> Eliminar() === false)
+            if (false === $producto -> Eliminar())
             {
                 return false;
             }
@@ -37,7 +37,7 @@
             $producto -> Descripcion = $descripcion;
             $producto -> Stock = $stock;
 
-            if($producto -> Guardar() === false)
+            if (false === $producto -> Guardar())
             {
                 return false;
             }
@@ -50,7 +50,7 @@
             $productos = $producto -> ObtenerTodos();
             $resultado = array();
 
-            foreach($productos as $elemento)
+            foreach ($productos as $elemento)
             {
                 $array = array
                 (
@@ -69,10 +69,12 @@
         {
             $producto = new ProductoModelo($id);
 
-            if($producto -> Stock > 0)
+            if ($producto -> Stock > 0)
             {
                 return true;
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }

@@ -16,10 +16,12 @@
         $id_producto = $_GET['id_producto'];
         $fecha_hora = $_GET['fecha_hora'];
         
-        if (CompraControlador::Eliminar($id_persona, $id_producto, $fecha_hora) === false)
+        if (false === CompraControlador::Eliminar($id_persona, $id_producto, $fecha_hora))
         {
             echo "No se puede eliminar a la compra</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Compra eliminada</br></br>";
         }
 

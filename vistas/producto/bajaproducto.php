@@ -14,10 +14,12 @@
 
         $id = $_GET['id'];
         
-        if (ProductoControlador::Eliminar($id) === false)
+        if (false === ProductoControlador::Eliminar($id))
         {
             echo "No se puede eliminar el producto</br></br>";
-        } else {
+        }
+        else
+        {
             echo "Producto eliminado</br></br>";
         }
 

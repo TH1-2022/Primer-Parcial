@@ -16,14 +16,16 @@
 
         public function Guardar()
         {
-            if($this -> FechaYHora == NULL)
+            if ($this -> FechaYHora == NULL)
             {
-                if($this -> insertar() === false)
+                if (false === $this -> insertar())
                 {
                     return false;
                 }
-            } else { 
-                if($this -> insertarConFecha() === false)
+            }
+            else
+            { 
+                if (false === $this -> insertarConFecha())
                 {
                     return false;
                 }

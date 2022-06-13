@@ -17,7 +17,7 @@
         
         $compras = CompraControlador::Listar();
 
-        foreach($compras as $compra)
+        foreach ($compras as $compra)
         {
             $id_persona = $compra['id_persona'];
             $id_producto = $compra['id_producto'];

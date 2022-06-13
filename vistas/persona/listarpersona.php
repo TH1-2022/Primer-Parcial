@@ -17,7 +17,7 @@
         
         $personas = PersonaControlador::Listar();
 
-        foreach($personas as $persona)
+        foreach ($personas as $persona)
         {
             $id = $persona['id'];
             $nombre = $persona['nombre'];

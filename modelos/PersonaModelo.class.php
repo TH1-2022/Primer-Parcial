@@ -13,7 +13,7 @@
         public function __construct($id = "")
         {
             parent::__construct();
-            if($id != "")
+            if ($id != "")
             {
                 $this -> Id = $id;
                 $this -> Obtener();
@@ -23,14 +23,16 @@
 
         public function Guardar()
         {
-            if($this -> Id == NULL)
+            if ($this -> Id == NULL)
             { 
-                if($this -> insertar() === false)
+                if (false === $this -> insertar())
                 {
                     return false;
                 }
-            } else {
-                if($this -> actualizar() === false)
+            }
+            else
+            {
+                if (false === $this -> actualizar())
                 {
                     return false;
                 }

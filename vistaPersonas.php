@@ -37,7 +37,7 @@
         Apellido <input type="text" name="apellido"><br>
         Telefono <input type="number" name="telefono"><br>
         Email <input type="email" name="email"><br>
-        <button type="submit">Agregar</button>    
+        <button type="submit" name="submit" value="Agregar">Agregar</button> 
     </form>
 
     <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "true" ) :?>

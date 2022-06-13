@@ -23,7 +23,7 @@
     Apellido: <input type="text" name="apellido" value="<?= $resultado['apellido'] ?>" > <br />
     Telefono: <input type="number" name="telefono" value="<?= $resultado['telefono'] ?>" > <br />
     Email: <input type="email" name="email" value="<?= $resultado['email'] ?>" > <br />
-    <input type="submit" value="Modificar">
+    <button type="submit" name="submit" value="Modificar">Modificar</button>
 </form>
 
 </body>

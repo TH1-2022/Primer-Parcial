@@ -28,7 +28,7 @@
     Descripcion del Producto <input type="text" name="descripcion" value="<?= $resultado['descripcion'] ?>" readonly> <br />
     Email de la persona <input type="email" name="email" value="<?= $resultado['email'] ?>" readonly><br>
     Fecha y Hora de la compra <input type="datetime-local" name="fechaAc" value="<?= date("Y-m-d\TH:i:s", strtotime($resultado['fecha_hora'])) ?>"><br>
-    <input type="submit" value="Modificar">
+    <button type="submit" name="submit" value="Modificar">Modificar</button>
     <input type="hidden" name="fechaAn" value="<?= $resultado['fecha_hora'] ?>"><br>
 </form>
 

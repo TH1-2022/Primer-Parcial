@@ -35,7 +35,7 @@
         Nombre <input type="text" name="nombre"><br>
         Descripcion <input type="text" name="descripcion"><br>
         Stock <input type="number" name="stock"><br>
-        <button type="submit">Agregar</button>
+        <button type="submit" name="submit" value="Agregar">Agregar</button> 
     </form>
 
     <?php if(isset($_GET[ALTA]) && $_GET[ALTA] === "true" ) :?>

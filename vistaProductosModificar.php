@@ -22,7 +22,7 @@
     Nombre: <input type="text" name="nombre" value="<?= $resultado['nombre'] ?>" > <br />
     Descripcion: <input type="text" name="descripcion" value="<?= $resultado['descripcion'] ?>" > <br />
     Stock: <input type="number" name="stock" value="<?= $resultado['stock'] ?>" > <br />
-    <input type="submit" value="Modificar">
+    <button type="submit" name="submit" value="Modificar">Modificar</button>
 </form>
 
 </body>

@@ -12,7 +12,7 @@
         $telefono = $_POST['telefono'];
         $email = $_POST['correo'];
         
-        if (! empty($nombre) and ! empty($apellido) and ! empty($email)) {
+        if (! empty(trim($nombre)) and ! empty(trim($apellido)) and ! empty(trim($email))) {
             $sql = "INSERT INTO persona (nombre,apellido,telefono,email) VALUES ('$nombre','$apellido',$telefono,'$email')";
         } else { 
             header($Location . '&exito=noagregado');
@@ -24,7 +24,7 @@
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
         $stock = $_POST['stock'];
-        if (! empty($nombre) and ! empty($stock)) {
+        if (! empty(trim($nombre)) and ! empty(trim($stock))) {
             $sql = "INSERT INTO producto (nombre,descripcion,stock) VALUES ('$nombre','$descripcion', '$stock')";
         } else { 
             header($Location . '&exito=noagregado');
@@ -37,11 +37,11 @@
         $idDeProducto = $_POST['idDeProducto'];
         $fechaDeCompra = $_POST['fechaDeCompra'];
         
-        if (! empty($idDePersona) and ! empty($idDeProducto) and ! empty($fechaDeCompra)) {
+        if (! empty(trim($idDePersona)) and ! empty(trim($idDeProducto)) and ! empty(trim($fechaDeCompra))) {
             $sql = "INSERT INTO compra (id_persona,id_producto,fecha_hora) VALUES ('$idDePersona','$idDeProducto', DATE_FORMAT('$fechaDeCompra', '%Y-%m-%d %H:%i:%s'))";
         }
         
-        if (! empty($idDePersona) and ! empty($idDeProducto) and empty($fechaDeCompra)) {
+        if (! empty(trim($idDePersona)) and ! empty(trim($idDeProducto)) and empty(trim($fechaDeCompra))) {
             $sql = "INSERT INTO compra (id_persona,id_producto,fecha_hora) VALUES ('$idDePersona','$idDeProducto', NOW())";
         } 
         if (empty($idDePersona) or empty($idDeProducto)) {
@@ -49,7 +49,6 @@
         }
         
     }
-    
-    echo $fechaDeCompra;
+
     if($con -> query($sql) === TRUE ) header($Location . '&exito=agregado');
     else header($Location . '&exito=noagregado');

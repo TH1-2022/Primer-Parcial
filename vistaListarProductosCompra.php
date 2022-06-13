@@ -15,7 +15,7 @@
         $sql = "SELECT * FROM producto";
         $resultado = ejcutarSentenciaDevuelveResultado($sql,1);
 
-        foreach($resultado as $fila) :
+        if($resultado) foreach($resultado as $fila) :
     ?>
         <b>ID:</b>  <?=$fila['id']?> 
         <b>Nombre:</b>  <?=$fila['nombre']?> 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Baja persona</title>
 </head>
 <body>
     
@@ -14,9 +14,10 @@
 
         $id = $_GET['id'];
         
-        if (PersonaControlador::Eliminar($id) === false){
+        if (PersonaControlador::Eliminar($id) === false)
+        {
             echo "No se puede eliminar a la persona</br></br>";
-        }else{
+        } else {
             echo "Persona eliminada</br></br>";
         }
 

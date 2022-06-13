@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Compras</title>
 </head>
 <body>
 
@@ -12,12 +12,13 @@
     <a href="../../index.html">Volver</a></br></br></br>
 
     <?php 
+
         require "../../utils/autoload.php";
         
         $compras = CompraControlador::Listar();
 
-        foreach($compras as $compra){
-
+        foreach($compras as $compra)
+        {
             $id_persona = $compra['id_persona'];
             $id_producto = $compra['id_producto'];
             $fecha_hora = $compra['fecha_hora'];
@@ -53,6 +54,7 @@
             echo "Stock actual: " . $stock_producto .  "</br></br></br></br>";
 
         }
+        
     ?>
 
 </body>

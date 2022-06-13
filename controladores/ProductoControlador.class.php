@@ -1,43 +1,59 @@
 <?php 
+
     require "../../utils/autoload.php";
 
-    class ProductoControlador {
-        public static function Alta($nombre,$descripcion,$stock){
+    class ProductoControlador
+    {
+
+        public static function Alta($nombre,$descripcion,$stock)
+        {
             $producto = new ProductoModelo();
             $producto -> Nombre = $nombre;
             $producto -> Descripcion = $descripcion;
             $producto -> Stock = $stock;
-            if($producto -> Guardar() === false){
+
+            if($producto -> Guardar() === false)
+            {
                 return false;
             }
-
         }
 
-        public static function Eliminar($id){
+
+        public static function Eliminar($id)
+        {
             $producto = new ProductoModelo($id);
-            if($producto -> Eliminar() === false){
+
+            if($producto -> Eliminar() === false)
+            {
                 return false;
             }
         }
 
 
-        public static function Modificar($id,$nombre,$descripcion,$stock){
+        public static function Modificar($id,$nombre,$descripcion,$stock)
+        {
             $producto = new ProductoModelo($id);
             $producto -> Nombre = $nombre;
             $producto -> Descripcion = $descripcion;
             $producto -> Stock = $stock;
-            if($producto -> Guardar() === false){
+
+            if($producto -> Guardar() === false)
+            {
                 return false;
             }
         }
 
-        public static function Listar(){
+
+        public static function Listar()
+        {
             $producto = new ProductoModelo();
             $productos = $producto -> ObtenerTodos();
-
             $resultado = array();
-            foreach($productos as $elemento){
-                $array = array(
+
+            foreach($productos as $elemento)
+            {
+                $array = array
+                (
                     'id' => $elemento -> Id,
                     'nombre' => $elemento -> Nombre,
                     'descripcion' => $elemento -> Descripcion,
@@ -48,18 +64,25 @@
             return $resultado;
         }
 
-        public static function VerificarStock($id){
+
+        public static function VerificarStock($id)
+        {
             $producto = new ProductoModelo($id);
-            if($producto -> Stock > 0){
+
+            if($producto -> Stock > 0)
+            {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
 
-        public static function RestarStock($id){
+
+        public static function RestarStock($id)
+        {
             $producto = new ProductoModelo($id);
+            
             return $producto -> RestarStock();
         }
-    }
 
+    }

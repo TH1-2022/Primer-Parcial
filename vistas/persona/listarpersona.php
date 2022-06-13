@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Personas</title>
 </head>
 <body>
 
     <a href="altapersona.html">Ingresar persona</a></br></br>
     <a href="../../index.html">Volver</a></br></br></br>
 
-    <?php 
+    <?php
+
         require "../../utils/autoload.php";
         
         $personas = PersonaControlador::Listar();
 
-        foreach($personas as $persona){
-
+        foreach($personas as $persona)
+        {
             $id = $persona['id'];
             $nombre = $persona['nombre'];
             $apellido = $persona['apellido'];
@@ -40,8 +41,8 @@
             echo $apellido . "</br>";
             echo "Telefono: " . $telefono .  "</br>";
             echo "Email: " . $email . "</br></br>";
-
         }
+        
     ?>
 
 </body>

@@ -1,62 +1,82 @@
 <?php 
+
     require "../../utils/autoload.php";
 
-    class CompraControlador {
-        
-        public static function Alta($idPersona, $idProducto, $fechaYHora){
-            if(ProductoControlador::VerificarStock($idProducto)){
+    class CompraControlador
+    {
+
+        public static function Alta($idPersona, $idProducto, $fechaYHora)
+        {
+            if(ProductoControlador::VerificarStock($idProducto))
+            {
                 $compra = new CompraModelo();
                 $compra -> IdPersona = $idPersona;
                 $compra -> IdProducto = $idProducto;
                 $compra -> FechaYHora = $fechaYHora;
-                if ($compra -> Guardar() === false){
+
+                if ($compra -> Guardar() === false)
+                {
                     return false;
                 }
                 ProductoControlador::RestarStock($idProducto);
-            }else{
+            } else {
                 return false;
             }
         }
 
-        public static function Eliminar($idPersona, $idProducto, $fechaYHora){
+
+        public static function Eliminar($idPersona, $idProducto, $fechaYHora)
+        {
             $compra = new CompraModelo();
             $compra -> IdPersona = $idPersona;
             $compra -> IdProducto = $idProducto;
             $compra -> FechaYHora = $fechaYHora;
-            if($compra -> Eliminar() === false){
+
+            if($compra -> Eliminar() === false)
+            {
                 return false;
             }
         }
+
 
         public static function Modificar($idPersona, $idProducto, $fechaYHora, 
-        $nuevaidPersona, $nuevaidProducto, $nuevafechaYHora){
-            
-            if(self::AltaSinRestarStock($nuevaidPersona, $nuevaidProducto, $nuevafechaYHora)){
+        $nuevaidPersona, $nuevaidProducto, $nuevafechaYHora)
+        {
+            if(self::AltaSinRestarStock($nuevaidPersona, $nuevaidProducto, $nuevafechaYHora))
+            {
                 self::Eliminar($idPersona, $idProducto, $fechaYHora);
-            }else{
+            } else {
                 return false;
             }
         }
 
-        public static function AltaSinRestarStock($idPersona, $idProducto, $fechaYHora){
+
+        public static function AltaSinRestarStock($idPersona, $idProducto, $fechaYHora)
+        {
             $compra = new CompraModelo();
             $compra -> IdPersona = $idPersona;
             $compra -> IdProducto = $idProducto;
             $compra -> FechaYHora = $fechaYHora;
-            if ($compra -> Guardar() === false){
+            
+            if ($compra -> Guardar() === false)
+            {
                 return false;
-            }else{
+            } else {
                 return true;
             }
         }
 
-        public static function Listar(){
+
+        public static function Listar()
+        {
             $compra = new DetalleCompraModelo();
             $compras = $compra -> ObtenerTodos();
-
             $resultado = array();
-            foreach($compras as $elemento){
-                $array = array(
+            
+            foreach($compras as $elemento)
+            {
+                $array = array
+                (
                     'id_persona' => $elemento -> IdPersona,
                     'id_producto' => $elemento -> IdProducto,
                     'fecha_hora' => $elemento -> FechaYHora,
@@ -71,7 +91,7 @@
                 array_push($resultado,$array);
             }
             return $resultado;
-            
         }
+        
+        
     }
-    

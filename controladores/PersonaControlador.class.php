@@ -1,44 +1,61 @@
 <?php 
+
     require "../../utils/autoload.php";
 
-    class PersonaControlador {
-        public static function Alta($nombre,$apellido,$telefono,$email){
+    class PersonaControlador
+    {
+
+        public static function Alta($nombre,$apellido,$telefono,$email)
+        {
             $persona = new PersonaModelo();
             $persona -> Nombre = $nombre;
             $persona -> Apellido = $apellido;
             $persona -> Telefono = $telefono;
             $persona -> Email = $email;
-            if($persona -> Guardar() === false){
+
+            if($persona -> Guardar() === false)
+            {
                 return false;
             }
-
         }
 
-        public static function Eliminar($id){
+
+        public static function Eliminar($id)
+        {
             $persona = new PersonaModelo($id);
-            if($persona -> Eliminar() === false){
+
+            if($persona -> Eliminar() === false)
+            {
                 return false;
             }
         }
 
-        public static function Modificar($id,$nombre,$apellido,$telefono,$email){
+
+        public static function Modificar($id,$nombre,$apellido,$telefono,$email)
+        {
             $persona = new PersonaModelo($id);
             $persona -> Nombre = $nombre;
             $persona -> Apellido = $apellido;
             $persona -> Telefono = $telefono;
             $persona -> Email = $email;
-            if($persona -> Guardar() === false){
+
+            if($persona -> Guardar() === false)
+            {
                 return false;
             }
         }
 
-        public static function Listar(){
+
+        public static function Listar()
+        {
             $persona = new PersonaModelo();
             $personas = $persona -> ObtenerTodos();
-
             $resultado = array();
-            foreach($personas as $elemento){
-                $array = array(
+            
+            foreach($personas as $elemento)
+            {
+                $array = array
+                (
                     'id' => $elemento -> Id,
                     'nombre' => $elemento -> Nombre,
                     'apellido' => $elemento -> Apellido,
@@ -48,8 +65,6 @@
                 array_push($resultado,$array);
             }
             return $resultado;
-            
-
         }
+        
     }
-

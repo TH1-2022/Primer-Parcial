@@ -1,18 +1,20 @@
 <?php 
+
     require "../../utils/autoload.php";
 
-    class Modelo{
+    class Modelo
+    {
         public $IpBaseDeDatos;
         public $NombreBaseDeDatos;
         public $UsuarioBaseDeDatos;
         public $PasswordBaseDeDatos;
         public $conexionBaseDeDatos;
         
-        public function __construct(){
-
+        public function __construct()
+        {
             $this -> inicializarParametrosDeConexion();
-
-            $this -> conexionBaseDeDatos = new mysqli(
+            $this -> conexionBaseDeDatos = new mysqli
+            (
                 $this -> IpBaseDeDatos,
                 $this -> UsuarioBaseDeDatos,
                 $this -> PasswordBaseDeDatos,
@@ -20,10 +22,13 @@
             );
         }
 
-        private function inicializarParametrosDeConexion(){
+
+        private function inicializarParametrosDeConexion()
+        {
             $this -> IpBaseDeDatos = IP_DB;
             $this -> NombreBaseDeDatos = NAME_DB;
             $this -> UsuarioBaseDeDatos = USER_DB;
             $this -> PasswordBaseDeDatos = PASS_DB;
         }
+        
     }

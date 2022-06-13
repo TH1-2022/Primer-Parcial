@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Baja compra</title>
 </head>
 <body>
     
@@ -16,9 +16,10 @@
         $id_producto = $_GET['id_producto'];
         $fecha_hora = $_GET['fecha_hora'];
         
-        if (CompraControlador::Eliminar($id_persona, $id_producto, $fecha_hora) === false){
+        if (CompraControlador::Eliminar($id_persona, $id_producto, $fecha_hora) === false)
+        {
             echo "No se puede eliminar a la compra</br></br>";
-        }else{
+        } else {
             echo "Compra eliminada</br></br>";
         }
 

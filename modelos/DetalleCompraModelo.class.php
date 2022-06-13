@@ -1,8 +1,9 @@
 <?php 
 
-require "../../utils/autoload.php";
+    require "../../utils/autoload.php";
 
-    class DetalleCompraModelo extends Modelo{
+    class DetalleCompraModelo extends Modelo
+    {
         public $IdPersona;
         public $IdProducto;
         public $FechaYHora;
@@ -14,11 +15,14 @@ require "../../utils/autoload.php";
         public $DescripcionProducto;
         public $StockProducto;
 
-        public function __construct(){
+        public function __construct()
+        {
             parent::__construct();
         }
 
-        public function ObtenerTodos(){
+
+        public function ObtenerTodos()
+        {
             $sql = "SELECT com.id_persona, com.id_producto, com.fecha_hora, 
             per.nombre nombre_persona, per.apellido apellido_persona, per.telefono telefono_persona, per.email email_persona, 
             prod.nombre nombre_producto, prod.descripcion descripcion_producto, prod.stock stock_producto FROM 
@@ -27,9 +31,10 @@ require "../../utils/autoload.php";
             com.id_producto = prod.id 
             ORDER BY com.fecha_hora DESC";
             $filas = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC);
-
             $resultado = array();
-            foreach($filas as $fila){
+
+            foreach($filas as $fila)
+            {
                 $compra = new DetalleCompraModelo();
                 $compra -> IdPersona = $fila['id_persona'];
                 $compra -> IdProducto = $fila['id_producto'];
@@ -41,10 +46,11 @@ require "../../utils/autoload.php";
                 $compra -> NombreProducto = $fila['nombre_producto'];
                 $compra -> DescripcionProducto = $fila['descripcion_producto'];
                 $compra -> StockProducto = $fila['stock_producto'];
+
                 array_push($resultado,$compra);
             }
             return $resultado;
-
         }
 
     }
+    

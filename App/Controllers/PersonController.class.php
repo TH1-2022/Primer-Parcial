@@ -24,11 +24,15 @@ class PersonController{
         $person = new ModelPerson($id);
         $person -> delete();
     }
+    public function get($id){
+        $person = new ModelPerson($id);
+        return $person;
+    }
     public static function getAll(){
         $person = new ModelPerson();
-        $result = $person -> getAll();
+        $persons = $person -> getAll();
 
-        $persons = array();
+        $result = array();
         foreach($persons as $row){
             $p[] = array(
                 "id" => $row["id"],
@@ -37,7 +41,7 @@ class PersonController{
                 "cellphone" => $row["cellphone"],
                 "email" => $row["email"]
             );
-            array_push($persons, $p);
+            array_push($result, $p);
         }
         return $result;
     }

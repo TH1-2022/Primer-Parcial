@@ -54,8 +54,8 @@ class ModelPerson extends Model{
     }
     public function getAll(){
         $sql = "SELECT * FROM person";
-        $result = $this -> DataBaseConnection -> query($sql) -> fetch_all(MYSQLI_ASSOC);
-        $persons = array();
+        $persons = $this -> DataBaseConnection -> query($sql) -> fetch_all(MYSQLI_ASSOC);
+        $result = array();
         foreach($result as $row){
             $person = new ModelPerson();
             $person -> ID = $row["id"];
@@ -63,7 +63,8 @@ class ModelPerson extends Model{
             $person -> LastName = $row["lastname"];
             $person -> Cellphone = $row["cellphone"];
             $person -> Email = $row["email"];
-            array_push($persons, $person);
+            array_push($result, $row);
         }
+        return $result;
     }
 }

@@ -48,16 +48,17 @@ class ModelProduct extends Model{
     }
     public function getAll(){
         $sql = "SELECT * FROM product";
-        $result = $this -> DataBaseConnection -> query($sql) -> fetch_all(MYSQLI_ASSOC);
-        $products = array();
+        $products = $this -> DataBaseConnection -> query($sql) -> fetch_all(MYSQLI_ASSOC);
+        $result = array();
         foreach($result as $row){
             $product = new ModelProduct();
             $product -> ID = $row["id"];
             $product -> Name = $row["name"];
             $product -> Description = $row["description"];
             $product -> Stock = $row["stock"];
-            $products[] = $product;
+            array_push($result, $row);
         }
+        return $result;
     }
 
 }

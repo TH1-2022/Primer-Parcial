@@ -5,6 +5,7 @@
     <td align="center" colspan=2>Acciones</td>
     <?php foreach ($resultados as $resultado): ?>
         <tr>
+            <td><?= $resultado['id'] ?></td>
             <td><?= $resultado['nombre'] ?></td>
             <td><?= $resultado['descripcion'] ?></td>
             <td><?= $resultado['stock'] ?></td>

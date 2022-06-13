@@ -1,4 +1,4 @@
-<table border=1>
+<table border=1 cellpadding="1"cellspacing="5">
     <td align="center">ID</td>
     <td align="center">Nombre</td>
     <td align="center">Apellido</td>

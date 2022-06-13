@@ -18,7 +18,7 @@
     <?php endforeach; ?>
     <tr>
         <form action=<?=$config['Controllers'] . "/agregar.php?Listar=" . $_GET['Listar']?> method="post">
-            <td><input type="text" name="id" size="5"></td>
+            <td><input type="text" name="id" size="5" readonly></td>
             <td><input type="text" name="nombre" size="40"></td>
             <td><textarea name="descripcion" rows="5" cols="50" wrap="soft"></textarea></td>
             <td><input type="text" name="stock" size="5"></td>

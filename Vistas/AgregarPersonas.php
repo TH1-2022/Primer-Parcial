@@ -1,4 +1,4 @@
-<form action=<?=$config['Controllers'] . "/Agregar.php?Listar=" . $_GET['Listar']?> method="post">
+<form action=<?=$config['Controllers'] . "/agregar.php?Listar=" . $_GET['Listar']?> method="post">
   <p>Nombre: <input type="text" name="nombre" size="35" maxlength="35"></p>
   <p>Apellido: <input type="text" name="apellido" size="35" maxlength="35"></p>
   <p>Telefono: <input type="tel" name="telefono" size="9" maxlength="9"></p>

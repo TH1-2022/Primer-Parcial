@@ -5,11 +5,21 @@
     <td align="center" colspan=2>Acciones</td>
     <?php foreach ($resultados as $resultado): ?>
         <tr>
-            <td><?= $resultado['id_persona'] ?></td>
-            <td><?= $resultado['id_producto'] ?></td>
-            <td><?= $resultado['fecha_hora'] ?></td>
-            <td><a href=<?= $config['Controllers'] . "/eliminar.php?Listar=" . $_GET['Listar'] . "&idP=" . $resultado['id_persona'] . "&idC=" . $resultado['id_producto'] . "&date=" . date("Y-m-d\TH:i:s", strtotime($resultado['fecha_hora'])) ?>>Eliminar</a></td>
-            <td><a href=<?= $config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']  . "&idP=" . $resultado['id_persona'] . "&idC=" . $resultado['id_producto'] . "&date=" . date("Y-m-d\TH:i:s", strtotime($resultado['fecha_hora'])) ?>>Modificar</a></td>
+            <form action=<?=$config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']?> method="post">
+                <td><input type="text" name="idDePersona" value="<?= $resultado['id_persona'] ?>" size="5" readonly></td>
+                <td><input type="text" name="idDeProducto" value="<?= $resultado['id_producto'] ?>" size="5" readonly></td>
+                <td><input type="datetime-local" name="fechaDeCompra" value="<?= date("Y-m-d\TH:i:s", strtotime($resultado['fecha_hora'])) ?>" step="1"></td>
+                <td><input type="button" value="Eliminar" onClick="location.href='<?= $config['Controllers'] . '/eliminar.php?Listar=' . $_GET['Listar'] . '&idP=' . $resultado['id_persona'] . '&idC=' . $resultado['id_producto'] . '&date=' . date("Y-m-d\TH:i:s", strtotime($resultado['fecha_hora'])) ?>'"></a></td>
+                <td><input type="submit" value="Modificar"></a></td>
+            </form>
         </tr>
     <?php endforeach; ?>
+    <tr>
+        <form action=<?=$config['Controllers'] . "/agregar.php?Listar=" . $_GET['Listar']?> method="post">
+            <td><input type="text" name="idDePersona" size="5" maxlength="5"></td>
+            <td><input type="text" name="idDeProducto" size="5" maxlength="5"></td>
+            <td><input type="datetime-local" name="fechaDeCompra" step="1"></td>
+            <td align="center" colspan=2><input type="submit" value="Agregar"></a></td>
+        </form>    
+    </tr>
 </table>

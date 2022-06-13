@@ -6,12 +6,24 @@
     <td align="center" colspan=2>Acciones</td>
     <?php foreach ($resultados as $resultado): ?>
         <tr>
-            <td><?= $resultado['id'] ?></td>
-            <td><?= $resultado['nombre'] ?></td>
-            <td><?= nl2br($resultado['descripcion']) ?></td>
-            <td><?= $resultado['stock'] ?></td>
-            <td><a href=<?= $config['Controllers'] . "/eliminar.php?Listar=" . $_GET['Listar'] . "&id=" . $resultado['id'] ?>>Eliminar</a></td>
-            <td><a href=<?= $config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']  . "&id=" . $resultado['id'] ?>>Modificar</a></td>
+            <form action=<?=$config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']?> method="post">
+                <td><input type="text" name="id" value="<?= $resultado['id'] ?>" size="5" readonly></td>
+                <td><input type="text" name="nombre" value="<?= $resultado['nombre'] ?>" size="40"></td>
+                <td><textarea name="descripcion" rows="10" cols="50" wrap="soft"><?= $resultado['descripcion'] ?></textarea></td>
+                <td><input type="text" name="stock" value="<?= $resultado['stock'] ?>" size="5"></td>
+                <td><input type="button" value="Eliminar" onClick="location.href='<?= $config['Controllers'] . '/eliminar.php?Listar=' . $_GET['Listar'] . '&id=' . $resultado['id']; ?>'"></a></td>
+                <td><input type="submit" value="Modificar"></a></td>
+            </form>
         </tr>
     <?php endforeach; ?>
+    <tr>
+        <form action=<?=$config['Controllers'] . "/agregar.php?Listar=" . $_GET['Listar']?> method="post">
+            <td><input type="text" name="id" size="5"></td>
+            <td><input type="text" name="nombre" size="40"></td>
+            <td><textarea name="descripcion" rows="10" cols="50" wrap="soft"></textarea></td>
+            <td><input type="text" name="stock" size="5"></td>
+            <td align="center" colspan=2><input type="submit" value="Agregar"></a></td>
+        </form>    
+    </tr>
+    
 </table>

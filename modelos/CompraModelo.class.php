@@ -12,14 +12,11 @@ require "../../utils/autoload.php";
         }
 
         public function Guardar(){
-
             if($this -> FechaYHora == NULL){
-
                 if($this -> insertar() === false){
                     return false;
                 }
             }else{ 
-
                 if($this -> insertarConFecha() === false){
                     return false;
                 }

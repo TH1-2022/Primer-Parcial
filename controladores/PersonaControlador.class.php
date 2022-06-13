@@ -8,13 +8,15 @@
             $persona -> Apellido = $apellido;
             $persona -> Telefono = $telefono;
             $persona -> Email = $email;
-            $persona -> Guardar();
+            if($persona -> Guardar() === false){
+                return false;
+            }
 
         }
 
         public static function Eliminar($id){
             $persona = new PersonaModelo($id);
-            if(!$persona -> Eliminar()){
+            if($persona -> Eliminar() === false){
                 return false;
             }
         }
@@ -25,7 +27,9 @@
             $persona -> Apellido = $apellido;
             $persona -> Telefono = $telefono;
             $persona -> Email = $email;
-            $persona -> Guardar();
+            if($persona -> Guardar() === false){
+                return false;
+            }
         }
 
         public static function Listar(){

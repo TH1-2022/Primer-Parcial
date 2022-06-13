@@ -18,8 +18,15 @@ require "../../utils/autoload.php";
         }
 
         public function Guardar(){
-            if($this -> Id == NULL) $this -> insertar();
-            else $this -> actualizar();
+            if($this -> Id == NULL){ 
+                if($this -> insertar() === false){
+                    return false;
+                }
+            }else{
+                if($this -> actualizar() === false){
+                    return false;
+                }
+            }
         }
 
         private function insertar(){
@@ -28,7 +35,7 @@ require "../../utils/autoload.php";
             '" . $this -> Apellido . "',
             " . $this -> Telefono . ",
             '" . $this -> Email . "')";
-            $this -> conexionBaseDeDatos -> query($sql);
+            return $this -> conexionBaseDeDatos -> query($sql);
         }
 
         private function actualizar(){
@@ -38,7 +45,7 @@ require "../../utils/autoload.php";
             telefono = " . $this -> Telefono . ",
             email = '" . $this -> Email . "'
             WHERE id = " . $this -> Id;
-            $this -> conexionBaseDeDatos -> query($sql);
+            return $this -> conexionBaseDeDatos -> query($sql);
         }
 
         public function Obtener(){

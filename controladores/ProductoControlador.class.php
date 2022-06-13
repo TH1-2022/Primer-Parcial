@@ -7,13 +7,15 @@
             $producto -> Nombre = $nombre;
             $producto -> Descripcion = $descripcion;
             $producto -> Stock = $stock;
-            $producto -> Guardar();
+            if($producto -> Guardar() === false){
+                return false;
+            }
 
         }
 
         public static function Eliminar($id){
             $producto = new ProductoModelo($id);
-            if(!$producto -> Eliminar()){
+            if($producto -> Eliminar() === false){
                 return false;
             }
         }
@@ -24,7 +26,9 @@
             $producto -> Nombre = $nombre;
             $producto -> Descripcion = $descripcion;
             $producto -> Stock = $stock;
-            $producto -> Guardar();
+            if($producto -> Guardar() === false){
+                return false;
+            }
         }
 
         public static function Listar(){

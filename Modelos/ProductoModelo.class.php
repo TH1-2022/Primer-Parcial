@@ -2,15 +2,12 @@
 
 require "autoload.php";
 
-class PersonaModelo extends BaseModelo{
+class ProductoModelo extends BaseModelo{
 
     public $Id;
     public $Nombre;
-    public $Apellido;
-    public $Telefono;
-    public $Email;
-
-
+    public $Descripcion;
+    public $Stock;
 
     public function __construct($id=""){
 
@@ -25,38 +22,36 @@ class PersonaModelo extends BaseModelo{
 
 
 
+    public function ObtenerProductos(){
 
-    public function ObtenerPersonas(){
-
-        $sql = "SELECT * FROM persona";
+        $sql = "SELECT * FROM producto";
         $filas = $this -> conexion -> query($sql) -> fetch_all(MYSQLI_ASSOC);
 
         $resultado = array();
         foreach($filas as $fila){
-            $p = new PersonaModelo();
+            $p = new ProductoModelo();
             $p -> id = $fila['id'];
             $p -> nombre = $fila['nombre'];
-            $p -> apellido = $fila['apellido'];
-            $p -> telefono = $fila['telefono'];
-            $p -> email = $fila['email'];
-            
+            $p -> descripcion = $fila['descripcion'];
+            $p -> stock = $fila['stock'];
             array_push($resultado,$p);
         }
+
+
         return $resultado;
 
     
 
 
-    public function Obtener(){
+        public function Obtener(){
 
-            $sql = "SELECT * FROM persona WHERE id = " . $this ->Id;
+            $sql = "SELECT * FROM producto WHERE id = " . $this ->Id;
             $fila = $this -> conexion -> query($sql) -> fetch_all(MYSQLI_ASSOC)[0];
     
             $this -> Id = $fila['id'];
             $this -> nombre = $fila['nombre'];
-            $this -> apellido = $fila['apellido'];
-            $this -> telefono = $fila['telefono'];
-            $this -> email = $fila['email'];
+            $this -> descripcion = $fila['descripcion'];
+            $this -> stock = $fila['stock'];
         }
 
 

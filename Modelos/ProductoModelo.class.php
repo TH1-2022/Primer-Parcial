@@ -40,7 +40,7 @@ class ProductoModelo extends BaseModelo{
 
         return $resultado;
 
-    
+    }
 
 
         public function Obtener(){

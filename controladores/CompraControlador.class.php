@@ -27,7 +27,7 @@
         }
 
         public static function Listar(){
-            $compra = new CompraModelo();
+            $compra = new DetalleCompraModelo();
             $compras = $compra -> ObtenerTodos();
 
             $resultado = array();

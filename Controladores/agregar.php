@@ -38,7 +38,7 @@
         $fechaDeCompra = $_POST['fechaDeCompra'];
         
         if (! empty($idDePersona) and ! empty($idDeProducto) and ! empty($fechaDeCompra)) {
-            $sql = "INSERT INTO compra (id_persona,id_producto,fecha_hora) VALUES ('$idDePersona','$idDeProducto', $fechaDeCompra)";
+            $sql = "INSERT INTO compra (id_persona,id_producto,fecha_hora) VALUES ('$idDePersona','$idDeProducto', DATE_FORMAT('$fechaDeCompra', '%Y-%m-%d %H:%i:%s'))";
         }
         
         if (! empty($idDePersona) and ! empty($idDeProducto) and empty($fechaDeCompra)) {
@@ -50,8 +50,6 @@
         
     }
     
-    echo '<pre>' . var_dump($_POST) . '</pre>';
-    echo ('conection: ' . $con -> query($sql));
-
-    //if($con -> query($sql) === TRUE ) header($Location . '&exito=agregado');
-    //else header($Location . '&exito=noagregado');
+    echo $fechaDeCompra;
+    if($con -> query($sql) === TRUE ) header($Location . '&exito=agregado');
+    else header($Location . '&exito=noagregado');

@@ -8,8 +8,8 @@
             <td><?= $resultado['id_persona'] ?></td>
             <td><?= $resultado['id_producto'] ?></td>
             <td><?= $resultado['fecha_hora'] ?></td>
-            <td><a href=<?= $config['Controllers'] . "/eliminar.php?Listar=" . $_GET['Listar'] . "&id=" . $resultado['id'] ?>>Eliminar</a></td>
-            <td><a href=<?= $config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']  . "&id=" . $resultado['id'] ?>>Modificar</a></td>
+            <td><a href=<?= $config['Controllers'] . "/eliminar.php?Listar=" . $_GET['Listar'] . "&idP=" . $resultado['id_persona'] . "&idC=" . $resultado['id_producto'] . "&date=" . date("Y-m-d\TH:i:s", strtotime($resultado['fecha_hora'])) ?>>Eliminar</a></td>
+            <td><a href=<?= $config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']  . "&idP=" . $resultado['id_persona'] . "&idC=" . $resultado['id_producto'] . "&date=" . date("Y-m-d\TH:i:s", strtotime($resultado['fecha_hora'])) ?>>Modificar</a></td>
         </tr>
     <?php endforeach; ?>
 </table>

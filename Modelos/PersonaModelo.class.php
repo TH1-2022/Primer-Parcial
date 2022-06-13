@@ -44,6 +44,8 @@ class PersonaModelo extends BaseModelo{
         }
         return $resultado;
 
+    }
+
     
 
 
@@ -60,6 +62,8 @@ class PersonaModelo extends BaseModelo{
         }
 
 
+    }
 
 
-}
+
+

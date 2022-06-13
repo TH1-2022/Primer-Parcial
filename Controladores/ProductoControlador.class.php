@@ -23,7 +23,7 @@ class ProductoControlador {
             $p -> Descripcion = $_POST['descripcion'];
             $p -> Stock = $_POST['stock'];
             $p -> Guardar();
-            header("Location: /Parcial/index.php");
+            header("Location: /Primer-Parcial/index.php");
             }
 
 

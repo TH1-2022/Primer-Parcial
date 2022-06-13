@@ -25,7 +25,7 @@ class PersonaControlador {
             $p -> Telefono = $_POST['telefono'];
             $p -> Email = $_POST['email'];
             $p -> Guardar();
-            header("Location: /Parcial/index.php");
+            header("Location: /Primer-Parcial/index.php");
             }
 
 

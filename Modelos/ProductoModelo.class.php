@@ -20,7 +20,23 @@ class ProductoModelo extends BaseModelo{
 
     }
 
+    public function Guardar(){
 
+        if($this -> Id == NULL) $this -> insertar();
+        else $this -> actualizar();
+
+    }
+
+    private function insertar(){
+
+        $sql = "INSERT INTO producto (nombre,descripcion,stock) VALUES (
+            '" . $this -> Nombre . "',
+            '" . $this -> Descripcion . "',
+            '" . $this -> Stock . "')";
+
+            $this -> conexion -> query($sql);
+
+    }
 
     public function ObtenerProductos(){
 

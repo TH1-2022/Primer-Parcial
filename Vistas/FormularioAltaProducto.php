@@ -8,7 +8,7 @@
 </head>
 <body>
     
-<form action="/Parcial/index.php?controlador=Producto&metodo=Alta" method="post">
+<form action="/Primer-Parcial/index.php?controlador=Producto&metodo=Alta" method="post">
         
         Nombre: <input type="text" name="nombre" > <br />
         Descripcion: <input type="text" name="descripcion" > <br />

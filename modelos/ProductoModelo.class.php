@@ -71,6 +71,7 @@
             if ($filas != NULL)
             {
                 $fila = $filas[0];
+                
                 $this -> Id = $fila['id'];
                 $this -> Nombre = $fila['nombre'];
                 $this -> Descripcion = $fila['descripcion'];

@@ -68,13 +68,18 @@
         public function Obtener()
         {
             $sql = "SELECT * FROM persona WHERE id = " . $this -> Id;
-            $fila = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC)[0];
+            $filas = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC);
 
-            $this -> Id = $fila['id'];
-            $this -> Nombre = $fila['nombre'];
-            $this -> Apellido = $fila['apellido'];
-            $this -> Telefono = $fila['telefono'];
-            $this -> Email = $fila['email'];
+            if ($filas != NULL)
+            {
+                $fila = $filas[0];
+
+                $this -> Id = $fila['id'];
+                $this -> Nombre = $fila['nombre'];
+                $this -> Apellido = $fila['apellido'];
+                $this -> Telefono = $fila['telefono'];
+                $this -> Email = $fila['email'];
+            }
         }
 
 

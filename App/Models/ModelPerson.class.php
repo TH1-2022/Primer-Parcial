@@ -11,7 +11,10 @@ class ModelPerson extends Model{
 
     public function __construct($id=""){
         parent::__construct();
-        
+        if($id != ""){
+            $this -> ID = $id;
+            $this -> get();
+        }
     }
     public function save(){
         if($this -> ID == null) $this -> insert();
@@ -44,9 +47,9 @@ class ModelPerson extends Model{
         $sql = "SELECT * FROM person WHERE id = '". $this->ID . "'";
         $result = $this -> DataBaseConnection -> query($sql); -> fetch_all(MYSQLI_ASSOC)[0];
         $this -> ID = $result["id"];
-        $this -> Name = $result["nombre"];
-        $this -> LastName = $result["apellido"];
-        $this -> Cellphone = $result["telefono"];
+        $this -> Name = $result["name"];
+        $this -> LastName = $result["lastname"];
+        $this -> Cellphone = $result["cellphone"];
         $this -> Email = $row["email"];
     }
     public function getAll(){
@@ -56,11 +59,11 @@ class ModelPerson extends Model{
         foreach($result as $row){
             $person = new ModelPerson();
             $person -> ID = $row["id"];
-            $person -> Name = $row["nombre"];
-            $person -> LastName = $row["apellido"];
-            $person -> Cellphone = $row["telefono"];
+            $person -> Name = $row["name"];
+            $person -> LastName = $row["lastname"];
+            $person -> Cellphone = $row["cellphone"];
             $person -> Email = $row["email"];
             array_push($persons, $person);
         }
-        }
+    }
 }

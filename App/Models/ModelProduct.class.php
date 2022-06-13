@@ -9,7 +9,10 @@ class ModelProduct extends Model{
 
     public function __construct($id=""){
         parent::__construct();
-        
+        if($id != ""){
+            $this -> ID = $id;
+            $this -> get();
+        }
     }
     public function save(){
         if($this -> ID == null) $this -> insert();

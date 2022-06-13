@@ -13,7 +13,7 @@
 
         public static function Eliminar($id){
             $producto = new ProductoModelo($id);
-            if($producto -> Eliminar() === false){
+            if(!$producto -> Eliminar()){
                 return false;
             }
         }
@@ -42,8 +42,20 @@
                 array_push($resultado,$array);
             }
             return $resultado;
-            
+        }
 
+        public static function VerificarStock($id){
+            $producto = new ProductoModelo($id);
+            if($producto -> Stock > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public static function RestarStock($id){
+            $producto = new ProductoModelo($id);
+            return $producto -> RestarStock();
         }
     }
 

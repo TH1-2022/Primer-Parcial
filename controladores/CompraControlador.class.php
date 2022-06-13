@@ -2,12 +2,18 @@
     require "../../utils/autoload.php";
 
     class CompraControlador {
+        
         public static function Alta($idPersona, $idProducto, $fechaYHora){
-            $compra = new CompraModelo();
-            $compra -> IdPersona = $idPersona;
-            $compra -> IdProducto = $idProducto;
-            $compra -> FechaYHora = $fechaYHora;
-            $compra -> Guardar();
+            if(ProductoControlador::VerificarStock($idProducto)){
+                ProductoControlador::RestarStock($idProducto);
+                $compra = new CompraModelo();
+                $compra -> IdPersona = $idPersona;
+                $compra -> IdProducto = $idProducto;
+                $compra -> FechaYHora = $fechaYHora;
+                $compra -> Guardar();
+            }else{
+                return false;
+            }
         }
 
         public static function Eliminar($idPersona, $idProducto, $fechaYHora){
@@ -15,7 +21,7 @@
             $compra -> IdPersona = $idPersona;
             $compra -> IdProducto = $idProducto;
             $compra -> FechaYHora = $fechaYHora;
-            if($compra -> Eliminar() === false){
+            if(!$compra -> Eliminar()){
                 return false;
             }
         }
@@ -42,6 +48,6 @@
             }
             return $resultado;
             
-
         }
     }
+    

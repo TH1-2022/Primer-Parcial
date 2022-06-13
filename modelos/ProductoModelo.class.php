@@ -54,6 +54,11 @@ require "../../utils/autoload.php";
             return $this -> conexionBaseDeDatos -> query($sql);
         }
 
+        public function RestarStock(){
+            $sql = "UPDATE producto SET stock" .  " = " .  "stock -1 WHERE id =" . $this -> Id;
+            $this -> conexionBaseDeDatos -> query($sql);
+        }
+
         public function ObtenerTodos(){
             $sql = "SELECT * FROM producto";
             $filas = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC);

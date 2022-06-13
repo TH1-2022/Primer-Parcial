@@ -19,8 +19,18 @@ require "../../utils/autoload.php";
         }
 
         public function Guardar(){
-            if($this -> FechaYHora == NULL) $this -> insertar();
-            else $this -> insertarConFecha();
+
+            if($this -> FechaYHora == NULL){
+
+                if($this -> insertar() === false){
+                    return false;
+                }
+            }else{ 
+
+                if($this -> insertarConFecha() === false){
+                    return false;
+                }
+            }
         }
 
         private function insertar(){
@@ -28,7 +38,7 @@ require "../../utils/autoload.php";
             $this -> IdPersona . ", " . 
             $this -> IdProducto . ", 
             now())";
-            $this -> conexionBaseDeDatos -> query($sql);
+            return $this -> conexionBaseDeDatos -> query($sql);
         }
 
         private function insertarConFecha(){
@@ -36,7 +46,7 @@ require "../../utils/autoload.php";
             $this -> IdPersona . ", " . 
             $this -> IdProducto . ", '" . 
             $this -> FechaYHora . "')";
-            $this -> conexionBaseDeDatos -> query($sql);
+            return $this -> conexionBaseDeDatos -> query($sql);
         }
 
         public function Eliminar(){

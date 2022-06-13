@@ -1,12 +1,14 @@
 body {
-    background-image: url("/Uploads/Tienda_Inicio.jpg");
+    /* background-image: url("/Uploads/Tienda_Inicio.jpg"); */
+    background-color: rgba(0, 0, 0, 0.532);
+    color:white;
 }
 ul.horizontal {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(247, 238, 238);
+    background-color: rgb(0, 0, 0);
 }
 
 ul.horizontal li {
@@ -15,16 +17,13 @@ ul.horizontal li {
 
 ul.horizontal li a {
     display: inline-block;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 254, 254);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 ul.horizontal li a:hover:not(.active) {
-    background-color: rgb(0, 255, 251);
-}
-
-ul.horizontal li a.active {
-    background-color:#04AA6D;
+    background-color: rgb(255, 255, 255);
+    color:black;
 }

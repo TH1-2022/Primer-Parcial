@@ -28,6 +28,28 @@
             }
         }
 
+        public static function Modificar($idPersona, $idProducto, $fechaYHora, 
+        $nuevaidPersona, $nuevaidProducto, $nuevafechaYHora){
+            
+            if(self::AltaSinRestarStock($nuevaidPersona, $nuevaidProducto, $nuevafechaYHora)){
+                self::Eliminar($idPersona, $idProducto, $fechaYHora);
+            }else{
+                return false;
+            }
+        }
+
+        public static function AltaSinRestarStock($idPersona, $idProducto, $fechaYHora){
+            $compra = new CompraModelo();
+            $compra -> IdPersona = $idPersona;
+            $compra -> IdProducto = $idProducto;
+            $compra -> FechaYHora = $fechaYHora;
+            if ($compra -> Guardar() === false){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
         public static function Listar(){
             $compra = new DetalleCompraModelo();
             $compras = $compra -> ObtenerTodos();

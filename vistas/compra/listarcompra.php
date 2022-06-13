@@ -33,6 +33,11 @@
             echo "Producto: " . $id_producto . "</br>";
             echo "Fecha y hora: " . $fecha_hora . "</br>";
 
+            echo "<a href=modificarcompra.php?id_persona=" . 
+            $id_persona . "&id_producto=" . 
+            $id_producto . "&fecha_hora=" . 
+            urlencode($fecha_hora) . ">modificar</a> ";
+
             echo "<a href=bajacompra.php?id_persona=" . 
             $id_persona . "&id_producto=" . 
             $id_producto . "&fecha_hora=" . 

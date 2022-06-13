@@ -5,12 +5,14 @@
         
         public static function Alta($idPersona, $idProducto, $fechaYHora){
             if(ProductoControlador::VerificarStock($idProducto)){
-                ProductoControlador::RestarStock($idProducto);
                 $compra = new CompraModelo();
                 $compra -> IdPersona = $idPersona;
                 $compra -> IdProducto = $idProducto;
                 $compra -> FechaYHora = $fechaYHora;
-                $compra -> Guardar();
+                if ($compra -> Guardar() === false){
+                    return false;
+                }
+                ProductoControlador::RestarStock($idProducto);
             }else{
                 return false;
             }
@@ -21,7 +23,7 @@
             $compra -> IdPersona = $idPersona;
             $compra -> IdProducto = $idProducto;
             $compra -> FechaYHora = $fechaYHora;
-            if(!$compra -> Eliminar()){
+            if($compra -> Eliminar() === false){
                 return false;
             }
         }

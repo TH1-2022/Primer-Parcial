@@ -9,10 +9,10 @@
             <form action=<?=$config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']?> method="post">
                 <td><input type="text" name="id" value="<?= $resultado['id'] ?>" size="5" readonly></td>
                 <td><input type="text" name="nombre" value="<?= $resultado['nombre'] ?>" size="40"></td>
-                <td><textarea name="descripcion" rows="10" cols="50" wrap="soft"><?= $resultado['descripcion'] ?></textarea></td>
+                <td><textarea name="descripcion" rows="<?= substr_count($resultado['descripcion'], "\n")+1 ?>" cols="50" wrap="soft"><?= $resultado['descripcion'] ?></textarea></td>
                 <td><input type="text" name="stock" value="<?= $resultado['stock'] ?>" size="5"></td>
-                <td><input type="button" value="Eliminar" onClick="location.href='<?= $config['Controllers'] . '/eliminar.php?Listar=' . $_GET['Listar'] . '&id=' . $resultado['id']; ?>'"></a></td>
-                <td><input type="submit" value="Modificar"></a></td>
+                <td><input type="button" value="Eliminar" onClick="location.href='<?= $config['Controllers'] . '/eliminar.php?Listar=' . $_GET['Listar'] . '&id=' . $resultado['id']; ?>'"></td>
+                <td><input type="submit" value="Modificar"></td>
             </form>
         </tr>
     <?php endforeach; ?>
@@ -20,9 +20,9 @@
         <form action=<?=$config['Controllers'] . "/agregar.php?Listar=" . $_GET['Listar']?> method="post">
             <td><input type="text" name="id" size="5"></td>
             <td><input type="text" name="nombre" size="40"></td>
-            <td><textarea name="descripcion" rows="10" cols="50" wrap="soft"></textarea></td>
+            <td><textarea name="descripcion" rows="5" cols="50" wrap="soft"></textarea></td>
             <td><input type="text" name="stock" size="5"></td>
-            <td align="center" colspan=2><input type="submit" value="Agregar"></a></td>
+            <td align="center" colspan=2><input type="submit" value="Agregar"></td>
         </form>    
     </tr>
     

@@ -18,9 +18,9 @@
         $stock = $_POST['stock'];
 
         if(ProductoControlador::Modificar($id, $nombre, $descripcion, $stock) === false){
-            echo "No se puede eliminar el producto</br></br>";
+            echo "No se puede modificar el producto</br></br>";
         }else{
-            echo "Producto eliminado</br></br>";
+            echo "Producto modificado</br></br>";
         }
 
     ?>

@@ -38,6 +38,26 @@ class ProductoModelo extends BaseModelo{
 
     }
 
+    private function actualizar(){
+
+        $sql = "UPDATE producto SET
+            nombre = '" . $this -> Nombre . "',
+            descripcion = '" . $this -> Descripcion . "',
+            stock = '" . $this -> Stock . "'
+            WHERE (id = " . $this -> Id .")";
+
+            $this -> conexion -> query($sql);
+
+    }
+
+    public function Eliminar(){
+
+        $sql = "DELETE FROM producto WHERE id = " . $this ->Id;
+        $this -> conexion -> query($sql);
+
+    }
+
+
     public function ObtenerProductos(){
 
         $sql = "SELECT * FROM producto";
@@ -70,6 +90,16 @@ class ProductoModelo extends BaseModelo{
             $this -> stock = $fila['stock'];
         }
 
+
+
+        private function RestaDeStock($id){
+
+        
+    
+
+    
+    
+        }
 
 
 

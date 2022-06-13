@@ -17,13 +17,28 @@ class ProductoControlador {
         }
 
 
-        public static function Alta(){
+    public static function Alta(){
             $p = new ProductoModelo();    
             $p -> Nombre = $_POST['nombre'];
             $p -> Descripcion = $_POST['descripcion'];
             $p -> Stock = $_POST['stock'];
             $p -> Guardar();
             header("Location: /Primer-Parcial/index.php");
+            }
+
+    public static function Baja(){
+                $p = new ProductoModelo($_GET['id']); 
+                $p -> Eliminar();
+                header("Location: /Parcial/index.php");
+            }
+
+    public static function Modificar(){
+                $p = new ProductoModelo($_POST['id']);
+                $p->Nombre = $_POST['nombre'];
+                $p->Descripcion = $_POST['descripcion'];
+                $p->Stock = $_POST['stock'];
+                $p ->Guardar();
+                header("Location: /Parcial/index.php");
             }
 
 

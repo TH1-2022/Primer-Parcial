@@ -45,6 +45,26 @@ class PersonaModelo extends BaseModelo{
     }
 
 
+    private function actualizar(){
+
+        $sql = "UPDATE persona SET
+        nombre = '" . $this -> Nombre . "',
+        apellido = '" . $this -> Apellido . "',
+        telefono = '" . $this -> Telefono . "',
+        email = '" . $this -> Email . "'
+        WHERE (id = " . $this -> Id .")";
+
+        $this -> conexion -> query($sql);
+
+    }
+    
+    public function Eliminar(){
+
+        $sql = "DELETE FROM persona WHERE id = " . $this ->Id;
+        $this -> conexion -> query($sql);
+        
+    }
+
 
 
     public function ObtenerPersonas(){
@@ -67,7 +87,6 @@ class PersonaModelo extends BaseModelo{
 
     }
 
-    
 
 
     public function Obtener(){

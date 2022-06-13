@@ -12,8 +12,8 @@
             <td><?= $resultado['apellido'] ?></td>
             <td><?= $resultado['telefono'] ?></td>
             <td><?= $resultado['email'] ?></td>
-            <td><a href=<?= $config['APP_Controller'] . "/eliminar.php?Listar=" . $_GET['Listar'] . "&id=" . $resultado['id'] ?>>Eliminar</a></td>
-            <td><a href=<?= $config['APP_Controller'] . "/modificar.php?Listar=" . $_GET['Listar']  . "&id=" . $resultado['id'] ?>>Modificar</a></td>
+            <td><a href=<?= $config['Controllers'] . "/eliminar.php?Listar=" . $_GET['Listar'] . "&id=" . $resultado['id'] ?>>Eliminar</a></td>
+            <td><a href=<?= $config['Controllers'] . "/modificar.php?Listar=" . $_GET['Listar']  . "&id=" . $resultado['id'] ?>>Modificar</a></td>
         </tr>
     <?php endforeach; ?>
 </table>

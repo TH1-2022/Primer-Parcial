@@ -9,8 +9,8 @@
             <td><?= $resultado['nombre'] ?></td>
             <td><?= $resultado['descripcion'] ?></td>
             <td><?= $resultado['stock'] ?></td>
-            <td><a href=<?= $config['APP_Controller'] . "/eliminar.php?Listar=" . $_GET['Listar'] ?>>Eliminar</a></td>
-            <td><a href=<?= $config['APP_Controller'] . "/modificar.php?Listar=" . $_GET['Listar'] ?>>Modificar</a></td>
+            <td><a href=<?= $config['APP_Controller'] . "/eliminar.php?Listar=" . $_GET['Listar'] . "&id=" . $resultado['id'] ?>>Eliminar</a></td>
+            <td><a href=<?= $config['APP_Controller'] . "/modificar.php?Listar=" . $_GET['Listar']  . "&id=" . $resultado['id'] ?>>Modificar</a></td>
         </tr>
     <?php endforeach; ?>
 </table>

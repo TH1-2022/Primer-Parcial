@@ -25,6 +25,27 @@ class PersonaModelo extends BaseModelo{
 
 
 
+    public function Guardar(){
+
+        if($this -> Id == NULL) $this -> insertar();
+        else $this -> actualizar();
+
+    }
+
+    private function insertar(){
+
+        $sql = "INSERT INTO persona (nombre,apellido,telefono,email) VALUES (
+            '" . $this -> Nombre . "',
+            '" . $this -> Apellido . "',
+            '" . $this -> Telefono . "',
+            '" . $this -> Email . "')";
+
+            $this -> conexion -> query($sql);
+
+    }
+
+
+
 
     public function ObtenerPersonas(){
 

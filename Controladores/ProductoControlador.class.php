@@ -7,6 +7,26 @@ require "autoload.php";
 class ProductoControlador {
 
 
+    public static function FormularioAlta(){
+        require_once "Vistas/FormularioAltaProducto.php";
+    }
+
+    public static function FormularioModificar(){
+        $p = new ProductoModelo($_GET['id']);
+        require_once "Vistas/FormularioModificarProducto.php";
+        }
+
+
+        public static function Alta(){
+            $p = new ProductoModelo();    
+            $p -> Nombre = $_POST['nombre'];
+            $p -> Descripcion = $_POST['descripcion'];
+            $p -> Stock = $_POST['stock'];
+            $p -> Guardar();
+            header("Location: /Parcial/index.php");
+            }
+
+
 
     public static function Listar(){
 

@@ -18,7 +18,15 @@ class PersonaControlador {
         }
 
 
-
+        public static function Alta(){
+            $p = new PersonaModelo();    
+            $p -> Nombre = $_POST['nombre'];
+            $p -> Apellido = $_POST['apellido'];
+            $p -> Telefono = $_POST['telefono'];
+            $p -> Email = $_POST['email'];
+            $p -> Guardar();
+            header("Location: /Parcial/index.php");
+            }
 
 
 

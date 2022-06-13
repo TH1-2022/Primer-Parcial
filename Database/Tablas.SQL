@@ -1,3 +1,5 @@
+CREATE DATABASE supermercado;
+USE supermercado;
 CREATE TABLE persona(
     id int primary key auto_increment,
     nombre varchar,

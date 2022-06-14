@@ -11,18 +11,14 @@
 
 <body>
 
-    <h1>Compras WEB</h1>
+    <h1>Aplicacion WEB para realizar compra</h1>
 
     <p>
-        <a href="../Parcial1/Comprar.php" title="Agregar Compra">Comprar</a>.
+        <a href="../Parcial1/Comprar.php" title="Agregar Compra">Realizar compras</a>.
     </p>
 
     <p>
-        <a href="../Parcial1/ListarPedido.php" title="Agregar Compra">Modificar Pedido</a>.
-    </p>
-
-    <p>
-        <a href="../Parcial1/EliminarPedido.php" title="Agregar Compra">Eliminar Pedido</a>.
+        <a href="../Parcial1/ListarPedido.php" title="Agregar Compra">Modificar/Eliminar Pedido</a>.
     </p>
 
 

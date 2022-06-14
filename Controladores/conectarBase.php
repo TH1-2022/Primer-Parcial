@@ -1,6 +1,6 @@
 <?php   
     try {
-        require_once ('/home/abonilla-trabajo/Documentos/UTU/Programacion/GIT/Primer-Parcial/config.php');
+        require_once ($_SERVER['DOCUMENT_ROOT'] . '/config.php');
         $con = new mysqli($config['DB_HOST'], $config['DB_USER'], $config['DB_PASS'], $config['DB_NAME']);
         
         mysqli_set_charset($con, "utf8");

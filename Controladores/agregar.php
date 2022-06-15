@@ -24,7 +24,7 @@
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
         $stock = $_POST['stock'];
-        if (! empty(trim($nombre)) and ! empty(trim($stock))) {
+        if (! empty(trim($nombre)) and ! empty(trim($stock) or $stock == 0)) {
             $sql = "INSERT INTO producto (nombre,descripcion,stock) VALUES ('$nombre','$descripcion', '$stock')";
         } else { 
             header($Location . '&exito=noagregado');

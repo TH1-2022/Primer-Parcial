@@ -18,8 +18,8 @@
 
     if ($_GET['Listar'] == "Compras") {
         $fecha_hora = date("Y-m-d\ H:i:s", strtotime($_GET['date']));
-        $sql = "DELETE FROM compra where id_persona=" . $_GET['idP'] . " and id_producto=" . $_GET['idC'] . " and fecha_hora='$fecha_hora'";
+        $sql = "DELETE FROM compra where id_persona=" . $_GET['idP'] . " and id_producto=" . $_GET['idC'] . " and fecha_hora='$fecha_hora'; ";
     }
-
+    
     if($con -> query($sql) === TRUE ) header($Location . '&exito=eliminado');
     else header($Location . '&exito=noeliminado');

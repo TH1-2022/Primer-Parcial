@@ -26,7 +26,7 @@
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
         $stock = $_POST['stock'];
-        if (! empty(trim($nombre)) and ! empty(trim($stock))) {
+        if (! empty(trim($nombre)) and ! empty(trim($stock) or $stock == 0)) {
             $sql = "UPDATE producto SET nombre='$nombre', descripcion='$descripcion', stock=$stock WHERE id=$id";
         } else { 
             header($Location . '&exito=nomodificado');

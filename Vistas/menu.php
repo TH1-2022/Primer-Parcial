@@ -1,7 +1,5 @@
-<ul class="horizontal">
-    <li><a href="/index.php">Inicio</a></li>
-    <li><a href="/Vistas/Listar.php?Listar=Compras">Compras</a></li>
-    <li><a href="/Vistas/Listar.php?Listar=Personas">Personas</a></li>
-    <li><a href="/Vistas/Listar.php?Listar=Productos">Productos</a></li>
-    <li><a href="/Vistas/Comprar.php">Comprar</a></li>
-</ul>
+<a href="/index.php">Inicio</a>
+<a href="/Vistas/Listar.php?Listar=Compras">Compras</a>
+<a href="/Vistas/Listar.php?Listar=Personas">Personas</a>
+<a href="/Vistas/Listar.php?Listar=Productos">Productos</a>
+<a href="/Vistas/Comprar.php">Comprar</a>

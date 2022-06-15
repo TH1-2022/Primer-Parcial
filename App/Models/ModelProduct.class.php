@@ -1,5 +1,5 @@
 <?php
-require "./Utils/autoload.php";
+require "../Utils/autoload.php";
 
 class ModelProduct extends Model{
     public $ID;

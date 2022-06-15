@@ -1,5 +1,5 @@
 <?php
-require "./Utils/autoload.php";
+require "../Utils/autoload.php";
 
 public class ProductController{
 

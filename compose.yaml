@@ -11,10 +11,6 @@ services:
     build: Database
     ports:
       - "3306:3306"
-    volumes:
-      - ./data/db:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: 123
     networks:
       - default
       

@@ -1,27 +1,29 @@
 CREATE DATABASE supermercado;
 USE supermercado;
-CREATE TABLE persona(
-    id int primary key auto_increment,
-    name varchar,
-    lastname varchar,
-    cellphone int,
-    email varchar
+CREATE TABLE person(
+    id INTEGER auto_increment,
+    name VARCHAR(50),
+    lastname VARCHAR(50),
+    cellphone INTEGER,
+    email VARCHAR(50),
+    PRIMARY KEY(id)
 );
 
 
-CREATE TABLE producto(
-    id int primary key auto_increment,
-    name varchar,
-    description varchar,
-    stock int 
+CREATE TABLE product(
+    id INTEGER auto_increment,
+    name VARCHAR(50),
+    description VARCHAR(50),
+    stock INTEGER,
+    PRIMARY KEY (id)
 );
 
 
-CREATE TABLE compra(
-    person_id int,
-    product_id int,
+CREATE TABLE buyout(
+    person_id INTEGER,
+    product_id INTEGER,
     date_time datetime,
-    foreign key(id_persona) references persona(id),
-    foreign key(id_producto) references producto(id),
-    primary key(id_persona,id_producto,fecha_hora);
+    foreign key(person_id) references person(id),
+    foreign key(product_id) references product(id),
+    primary key(person_id,product_id,date_time)
 )

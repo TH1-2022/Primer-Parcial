@@ -1,5 +1,5 @@
 <?php
-require "utils/autoload.php";
+require "./Utils/autoload.php";
 
 class Model
 {

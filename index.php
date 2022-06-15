@@ -1,5 +1,5 @@
 <?php
-require "utils/autoload.php";
+require "Utils/autoload.php";
 
 if($_SERVER['REQUEST_METHOD'] !== "POST"){
     header('Location: 404.php');

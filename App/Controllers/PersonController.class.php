@@ -1,9 +1,6 @@
 <?php
 require "utils/autoload.php";
-if($_SERVER['REQUEST_METHOD'] !== "POST"){
-    header('Location: 404.php');
-    echo "404 Not found";    
-}
+
 
 
 class PersonController{

@@ -5,6 +5,8 @@ services:
       - "80:80"
     networks:
       - default
+    links:
+      - db:database
   db:
     build: Database/.
     ports:

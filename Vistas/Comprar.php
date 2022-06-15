@@ -20,7 +20,7 @@
         $resultados = $con -> query($sql) -> fetch_all(MYSQLI_ASSOC);
     ?>
     
-    <table border=1 cellpadding="1"cellspacing="5">
+    <table cellpadding="1"cellspacing="5">
     <tr>
         <td>ID Persona</td>
         <td>ID Producto</td>

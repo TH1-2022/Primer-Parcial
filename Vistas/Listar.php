@@ -24,9 +24,11 @@
         if ($_GET['Listar'] == "Compras") $sql = "SELECT c.id_persona as idP, pe.nombre AS nombreP, pe.apellido, pe.telefono, pe.email, c.id_producto AS idC, pr.nombre AS nombreC, pr.descripcion, pr.stock, c.fecha_hora FROM compra c INNER JOIN persona pe ON pe.id=c.id_persona INNER JOIN producto pr ON pr.id=c.id_producto;";
         
         $resultados = $con -> query($sql) -> fetch_all(MYSQLI_ASSOC); 
-        
-        if($resultados == NULL) echo "La lista de " . $_GET['Listar'] . " esta vacia";
-        
+    ?>
+    <?php if($resultados == NULL) : ?>
+        <br />La lista de <?= $_GET['Listar'] ?> esta vacia
+    <?php endif ?>    
+    <?php
         if ($resultados != NULL and $_GET['Listar'] == "Personas") include_once ($config['APP_Vistas'] . "/ListarPersonas.php");
         if($_GET['Listar'] == "Personas" and $_GET['exito'] == "agregado") echo "Se agrego a la persona";
         if($_GET['Listar'] == "Personas" and $_GET['exito'] == "noagregado") echo "Hubo un error al agregar a la persona";

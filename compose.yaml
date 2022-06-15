@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    networks:
+      - default
+  db:
+    build: Database/.
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - default
+      

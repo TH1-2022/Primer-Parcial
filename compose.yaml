@@ -1,0 +1,16 @@
+services:
+  web:
+    build: App
+    ports:
+      - "80:80"
+    networks:
+      - default
+    links:
+      - db:database
+  db:
+    build: Database
+    ports:
+      - "3306:3306"
+    networks:
+      - default
+      

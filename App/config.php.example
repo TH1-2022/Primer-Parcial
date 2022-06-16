@@ -1,0 +1,6 @@
+<?php
+const DATABASE_IP = "";
+const DATABASE_NAME = "";
+const DATABASE_USER = "";
+const DATABASE_PASSWORD = "";
+const DATABASE_PORT = ;

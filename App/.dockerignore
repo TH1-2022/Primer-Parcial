@@ -1,0 +1,7 @@
+Database/
+Data/
+compose.yaml
+README.md
+config.php.example
+.gitignore
+.git

@@ -5,8 +5,6 @@ if($_SERVER['REQUEST_METHOD'] !== "POST"){
     header('Location: 404.php');
     echo "404 Not found";    
 }
-$action = $_POST['action'];
-$params = $_POST['params'];
 if($action == "insert"){
     PersonController::insert($params[0], $params[1], $params[2], $params[3]);
 }
